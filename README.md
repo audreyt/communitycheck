@@ -2,8 +2,6 @@
 
 **A design proposal for showing people what the hidden majority actually believes.**
 
-![Community Check collapsed state: a viral social post with a subtle green prompt below asking "How do people actually feel about this?"](design/mockup-collapsed.png)
-
 Community Check is a system that attaches representative public opinion data to viral social media posts as context. When a high-reach post (about gun policy, for example) goes viral, Community Check shows what a statistically representative sample of users (and Americans nationally) actually believe about that topic in question.
 
 The goal is to up level the views of the quiet majority on issues that are prone to extreme viewpoint amplification.
@@ -26,8 +24,6 @@ Community Check draws from two data sources:
 Posts trigger a Community Check when they meet three criteria: high reach (>10K impressions), high engagement heat (disproportionate replies/quotes), and high-confidence topic match (>0.8 from an LLM classifier). Most posts are never touched.
 
 The result is a small, unobtrusive link beneath qualifying posts that lets you see where the actual community stands — both on that platform and nationally.
-
-![Community Check expanded state: polling results shown as horizontal bar chart with toggle between "This platform" and "Nationally" tabs](design/mockup-expanded.png)
 
 The goal is to supplement tools like Community Notes, providing better context to help people form accurate perceptions when consuming content on social media.
 
