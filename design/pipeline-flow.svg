@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#16a34a"/>
+    </marker>
+    <style>
+      .box { fill: #16181c; stroke: #2f3336; stroke-width: 1.5; }
+      .box-accent { fill: #0d1f14; stroke: #16a34a; stroke-width: 2; }
+      .label { fill: #ffffff; font-size: 16px; font-weight: 600; }
+      .sub { fill: #8b949e; font-size: 12px; }
+      .arrow { stroke: #16a34a; stroke-width: 2; fill: none; }
+      .phase { fill: #00dc82; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="520" fill="#0d1117"/>
+
+  <!-- Phase 1: TRIGGER -->
+  <text x="110" y="30" class="phase">1. TRIGGER</text>
+  <rect x="30" y="50" width="220" height="120" rx="10" class="box"/>
+  <text x="140" y="90" class="label" text-anchor="middle">Post goes viral</text>
+  <text x="140" y="115" class="sub" text-anchor="middle">› 10K impressions</text>
+  <text x="140" y="133" class="sub" text-anchor="middle">› 2% reply ratio OR</text>
+  <text x="140" y="148" class="sub" text-anchor="middle">› 0.5% quote ratio</text>
+
+  <!-- Arrow 1 -->
+  <path d="M250,110 L300,110" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- Phase 2: CLASSIFY -->
+  <text x="380" y="30" class="phase">2. CLASSIFY</text>
+  <rect x="300" y="50" width="220" height="120" rx="10" class="box"/>
+  <text x="410" y="85" class="label" text-anchor="middle">LLM topic match</text>
+  <text x="410" y="110" class="sub" text-anchor="middle">Against curated taxonomy</text>
+  <text x="410" y="128" class="sub" text-anchor="middle">of ~50 policy questions</text>
+  <text x="410" y="150" class="sub" text-anchor="middle" fill="#00dc82">confidence › 0.8</text>
+
+  <!-- Arrow 2 -->
+  <path d="M520,110 L570,110" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- Phase 3: LOOKUP -->
+  <text x="650" y="30" class="phase">3. LOOKUP</text>
+  <rect x="570" y="50" width="220" height="120" rx="10" class="box"/>
+  <text x="680" y="85" class="label" text-anchor="middle">Fetch opinion data</text>
+  <text x="680" y="110" class="sub" text-anchor="middle">Platform random sample</text>
+  <text x="680" y="128" class="sub" text-anchor="middle">+ national polls</text>
+  <text x="680" y="150" class="sub" text-anchor="middle">N › 100,000 · MoE ‹ ±0.5%</text>
+
+  <!-- Arrow 3 -->
+  <path d="M790,110 L840,110" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- Phase 4: DISPLAY -->
+  <text x="920" y="30" class="phase">4. DISPLAY</text>
+  <rect x="840" y="50" width="330" height="120" rx="10" class="box-accent"/>
+  <text x="1005" y="85" class="label" text-anchor="middle">Community Check attached</text>
+  <text x="1005" y="110" class="sub" text-anchor="middle">Unobtrusive link beneath post</text>
+  <text x="1005" y="128" class="sub" text-anchor="middle">Everyone sees the same numbers</text>
+  <text x="1005" y="150" class="sub" text-anchor="middle">Two tabs: platform + national</text>
+
+  <!-- Bottom: Data sources feeding into Lookup -->
+  <path d="M680,170 L680,230 L 380,230 L380,260" class="arrow" stroke-dasharray="4 4"/>
+  <path d="M680,170 L680,230 L 1005,230 L1005,260" class="arrow" stroke-dasharray="4 4"/>
+
+  <!-- TIER 1: Trusted National Polls -->
+  <text x="240" y="285" class="phase">TIER 1 · NATIONAL</text>
+  <rect x="180" y="300" width="400" height="180" rx="10" class="box"/>
+  <text x="380" y="335" class="label" text-anchor="middle">Trusted External Polls</text>
+  <text x="380" y="365" class="sub" text-anchor="middle">Pew Research · Gallup · AP-NORC · KFF</text>
+  <text x="380" y="415" class="sub" text-anchor="middle" fill="#00dc82">Quarterly refresh · AAPOR methodology</text>
+  <text x="380" y="435" class="sub" text-anchor="middle" fill="#00dc82">Fully versioned · Auditable</text>
+  <text x="380" y="460" class="sub" text-anchor="middle">Answers: "what does the country think?"</text>
+
+  <!-- TIER 2: Platform Random Sampling -->
+  <text x="840" y="285" class="phase">TIER 2 · PLATFORM</text>
+  <rect x="780" y="300" width="400" height="180" rx="10" class="box"/>
+  <text x="980" y="335" class="label" text-anchor="middle">Platform Random Sampling</text>
+  <text x="980" y="365" class="sub" text-anchor="middle">Stratified random of active users</text>
+  <text x="980" y="385" class="sub" text-anchor="middle">By geo · account age · activity level</text>
+  <text x="980" y="415" class="sub" text-anchor="middle" fill="#00dc82">Continuous refresh · Rolling 30-day window</text>
+  <text x="980" y="435" class="sub" text-anchor="middle" fill="#00dc82">Cryptographically anonymized</text>
+  <text x="980" y="460" class="sub" text-anchor="middle">Answers: "what do users actually think?"</text>
+</svg>

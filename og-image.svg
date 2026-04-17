@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <symbol id="person" viewBox="0 0 11 12">
+      <rect x="2.5" y="0.3" width="6" height="5.4" rx="1.6" fill="currentColor"/>
+      <path d="M0,12 Q0,6.5 5.5,6.5 Q11,6.5 11,12Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0d1117"/>
+
+  <!-- Grey people — left side, fading into darkness at edge -->
+  <use href="#person" x="80" y="155" width="40" height="44" color="#141920"/>
+  <use href="#person" x="130" y="140" width="40" height="44" color="#161c24"/>
+  <use href="#person" x="170" y="165" width="40" height="44" color="#181f28"/>
+  <use href="#person" x="220" y="130" width="40" height="44" color="#1a222c"/>
+  <use href="#person" x="260" y="158" width="40" height="44" color="#1c2530"/>
+  <use href="#person" x="300" y="142" width="40" height="44" color="#1e2834"/>
+  <use href="#person" x="340" y="168" width="40" height="44" color="#202b38"/>
+  <use href="#person" x="380" y="135" width="40" height="44" color="#222e3c"/>
+  <use href="#person" x="420" y="160" width="40" height="44" color="#243140"/>
+  <use href="#person" x="460" y="145" width="40" height="44" color="#263444"/>
+
+  <!-- 3 Red people in a triangle above title (2x size) -->
+  <use href="#person" x="572" y="100" width="56" height="60" color="#ef3340"/>
+  <use href="#person" x="512" y="170" width="56" height="60" color="#ef3340"/>
+  <use href="#person" x="632" y="170" width="56" height="60" color="#ef3340"/>
+
+  <!-- Grey people — right side, fading into darkness at edge -->
+  <use href="#person" x="700" y="145" width="40" height="44" color="#263444"/>
+  <use href="#person" x="740" y="160" width="40" height="44" color="#243140"/>
+  <use href="#person" x="780" y="135" width="40" height="44" color="#222e3c"/>
+  <use href="#person" x="820" y="168" width="40" height="44" color="#202b38"/>
+  <use href="#person" x="860" y="142" width="40" height="44" color="#1e2834"/>
+  <use href="#person" x="900" y="158" width="40" height="44" color="#1c2530"/>
+  <use href="#person" x="940" y="130" width="40" height="44" color="#1a222c"/>
+  <use href="#person" x="980" y="165" width="40" height="44" color="#181f28"/>
+  <use href="#person" x="1020" y="140" width="40" height="44" color="#161c24"/>
+  <use href="#person" x="1060" y="155" width="40" height="44" color="#141920"/>
+
+  <!-- Title — vertically centered (2x size) -->
+  <text x="600" y="365" text-anchor="middle" font-family="Georgia, serif" font-size="115" font-weight="400" fill="rgba(255,255,255,0.9)" letter-spacing="-3">The Noisy Room</text>
+
+  <!-- Subtitle (2x size) -->
+  <text x="600" y="430" text-anchor="middle" font-family="'Courier New', monospace" font-size="36" fill="rgba(255,255,255,0.5625)" letter-spacing="1">An interactive essay</text>
+  <text x="600" y="475" text-anchor="middle" font-family="'Courier New', monospace" font-size="36" fill="rgba(255,255,255,0.5625)" letter-spacing="1">about common confusion</text>
+
+</svg>

@@ -1,0 +1,29 @@
+.vercel
+node_modules/
+.DS_Store
+.env
+.env.local
+*.log
+
+# Build / deployment artifacts
+deploy/
+
+# Personal backend (not part of the open-source project)
+api/
+vercel.json
+package.json
+package-lock.json
+
+# Old variants and dev utilities
+index-v2-georgia.html
+edit.js
+files.zip
+files/
+generate_og.py
+
+# Screenshots
+Screenshot*.png
+screenshot*.png
+
+# Claude working directory
+.claude/
