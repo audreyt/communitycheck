@@ -39,10 +39,10 @@
   <use href="#person" x="1060" y="155" width="40" height="44" color="#141920"/>
 
   <!-- Title — vertically centered (2x size) -->
-  <text x="600" y="365" text-anchor="middle" font-family="Georgia, serif" font-size="115" font-weight="400" fill="rgba(255,255,255,0.9)" letter-spacing="-3">The Noisy Room</text>
+  <text x="600" y="365" text-anchor="middle" font-family="'BiauKai','標楷體','DFKai-SB','Kaiti TC',serif" font-size="120" font-weight="400" fill="rgba(255,255,255,0.9)" letter-spacing="8">喧囂之室</text>
 
   <!-- Subtitle (2x size) -->
-  <text x="600" y="430" text-anchor="middle" font-family="'Courier New', monospace" font-size="36" fill="rgba(255,255,255,0.5625)" letter-spacing="1">An interactive essay</text>
-  <text x="600" y="475" text-anchor="middle" font-family="'Courier New', monospace" font-size="36" fill="rgba(255,255,255,0.5625)" letter-spacing="1">about common confusion</text>
+  <text x="600" y="430" text-anchor="middle" font-family="'PingFang TC','Heiti TC','Microsoft JhengHei',sans-serif" font-size="32" fill="rgba(255,255,255,0.5625)" letter-spacing="3">關於眾聲喧嘩之中</text>
+  <text x="600" y="475" text-anchor="middle" font-family="'PingFang TC','Heiti TC','Microsoft JhengHei',sans-serif" font-size="32" fill="rgba(255,255,255,0.5625)" letter-spacing="3">那些被誤認的共識</text>
 
 </svg>

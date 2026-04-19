@@ -5,26 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>喧囂之室 ── 3% 的使用者如何扭曲了所有人看見的世界</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="canonical" href="https://thenoisyroom.com">
-<meta name="description" content="只有 3% 的社群媒體使用者會發布有毒內容,但美國人估計卻是 43%。一篇關於演算法放大、認知扭曲,以及如何修復的互動式文章。">
+<link rel="canonical" href="https://communitycheck.audreyt.org">
+<meta name="description" content="只有 3% 的社群媒體使用者會發布有毒內容，但美國人估計卻是 43%。一篇關於演算法放大、認知扭曲，以及如何修復的互動式文章。">
 <meta name="author" content="Tobias Rose-Stockwell">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="喧囂之室 The Noisy Room">
-<meta property="og:description" content="只有 3% 的社群媒體使用者會發布有毒內容,但美國人估計卻是 43%。一篇關於演算法所隱藏之事的互動式文章。">
-<meta property="og:image" content="https://thenoisyroom.com/og-image.png?v=2">
+<meta property="og:description" content="只有 3% 的社群媒體使用者會發布有毒內容，但美國人估計卻是 43%。一篇關於演算法所隱藏之事的互動式文章。">
+<meta property="og:image" content="https://communitycheck.audreyt.org/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://thenoisyroom.com">
+<meta property="og:url" content="https://communitycheck.audreyt.org">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="喧囂之室 The Noisy Room">
 <meta property="article:author" content="Tobias Rose-Stockwell">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="喧囂之室 The Noisy Room">
-<meta name="twitter:description" content="只有 3% 的社群媒體使用者會發布有毒內容,但美國人估計卻是 43%。一篇互動式文章。">
-<meta name="twitter:image" content="https://thenoisyroom.com/og-image.png?v=2">
+<meta name="twitter:description" content="只有 3% 的社群媒體使用者會發布有毒內容，但美國人估計卻是 43%。一篇互動式文章。">
+<meta name="twitter:image" content="https://communitycheck.audreyt.org/og-image.png?v=3">
 <meta name="twitter:creator" content="@TobiasRose">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"喧囂之室 The Noisy Room","description":"極少數人如何扭曲了所有人看見的世界。一篇關於社群媒體、認知扭曲,以及修復方案的互動式文章。","author":{"@type":"Person","name":"Tobias Rose-Stockwell","url":"https://tobias.cc"},"url":"https://thenoisyroom.com","image":"https://thenoisyroom.com/og-image.png","datePublished":"2026-02-18","dateModified":"2026-04-15","publisher":{"@type":"Organization","name":"喧囂之室 The Noisy Room"}}
+{"@context":"https://schema.org","@type":"Article","headline":"喧囂之室 The Noisy Room","description":"極少數人如何扭曲了所有人看見的世界。一篇關於社群媒體、認知扭曲，以及修復方案的互動式文章。","author":{"@type":"Person","name":"Tobias Rose-Stockwell","url":"https://tobias.cc"},"url":"https://communitycheck.audreyt.org","image":"https://communitycheck.audreyt.org/og-image.png","datePublished":"2026-02-18","dateModified":"2026-04-15","publisher":{"@type":"Organization","name":"喧囂之室 The Noisy Room"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,6 +33,23 @@
 (function(){var t=localStorage.getItem('theme');if(t){if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}else{var h=new Date().getHours();if(h>=22||h<6){document.documentElement.setAttribute('data-theme','dark');}}})();
 </script>
 <style>
+/* Kaiti (cursive script) for Hanzi — replaces synthesized italic on CJK */
+@font-face {
+  font-family: 'HanKai';
+  font-style: normal;
+  font-weight: 400 900;
+  src: local('BiauKai'), local('標楷體'), local('DFKai-SB'), local('Kaiti TC'), local('Kaiti SC'), local('Kaiti'), local('KaiTi'), local('STKaiti'), local('楷体');
+  unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+@font-face {
+  font-family: 'HanKai';
+  font-style: italic;
+  font-weight: 400 900;
+  src: local('BiauKai'), local('標楷體'), local('DFKai-SB'), local('Kaiti TC'), local('Kaiti SC'), local('Kaiti'), local('KaiTi'), local('STKaiti'), local('楷体');
+  unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+:lang(zh-Hant), :lang(zh) { font-synthesis: none; }
+
 :root {
   --bg: #faf8f4;
   --bg-raised: #ffffff;
@@ -58,10 +75,10 @@
   --border-bright: #d6d1c9;
   --card: #fffefa;
   --card-shadow: 0 2px 12px rgba(44,40,37,0.06);
-  --serif: 'Lora', Georgia, serif;
-  --display: Georgia, serif;
-  --sans: 'IBM Plex Mono', monospace;
-  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Lora', 'HanKai', Georgia, serif;
+  --display: Georgia, 'HanKai', serif;
+  --sans: 'IBM Plex Mono', 'HanKai', monospace;
+  --mono: 'IBM Plex Mono', 'HanKai', monospace;
   --muted: #f5f3ef;
   --muted-hover: #faf8f4;
   --toxic-bg: #fef2f2;
@@ -1266,12 +1283,12 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
   <!-- 1: THE GUESS -->
   <section class="section" id="s1" style="margin-top:25px">
 
-    <p class="drop-cap-block">這個故事從一項研究開始。2025 年 12 月,史丹佛大學的研究團隊<a href="https://doi.org/10.1093/pnasnexus/pgaf310" target="_blank">分析了 22 億則社群媒體貼文</a>,想找出某種模式。他們想知道:有多少比例的使用者發布了「嚴重」的有毒內容?不是粗魯、不是諷刺,而是仇恨到 90% 的人都會標記為「有問題」的言論。<span class="cite">1</span></p>
-    <p>有了這份資料,他們接著問了上千人一個簡單的問題:</p>
+    <p class="drop-cap-block">這個故事從一項研究開始。2025 年 12 月，史丹佛大學的研究團隊<a href="https://doi.org/10.1093/pnasnexus/pgaf310" target="_blank">分析了 22 億則社群媒體貼文</a>，想找出某種模式。他們想知道：有多少比例的使用者發布了「嚴重」的有毒內容？不是粗魯、不是諷刺，而是仇恨到 90% 的人都會標記為「有問題」的言論。<span class="cite">1</span></p>
+    <p>有了這份資料，他們接著問了上千人一個簡單的問題：</p>
 
     <div class="guess-box">
       <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--text);margin-bottom:16px">猜猜看。</div>
-      <div class="guess-question">您認為,有多少比例的社群媒體使用者會發布嚴重的有毒內容?</div>
+      <div class="guess-question">您認為，有多少比例的社群媒體使用者會發布嚴重的有毒內容？</div>
       <div class="guess-slider-row">
         <input type="range" class="guess-slider" id="guess-slider" min="0" max="100" value="50">
         <div class="slider-pulse-ring"></div>
@@ -1281,15 +1298,15 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       <button class="guess-submit" id="guess-submit" onclick="submitGuess()" disabled>確認我的猜測</button>
     </div>
     <div id="guess-reveal" class="hidden"></div>
-    <p id="post-guess-text" class="hidden">研究團隊被結果嚇了一跳。他們發現了一座巨大的「錯誤認知水庫」——明明攤在眼前,卻一直被忽略。</p>
+    <p id="post-guess-text" class="hidden">研究團隊被結果嚇了一跳。他們發現了一座巨大的「錯誤認知水庫」——明明攤在眼前，卻一直被忽略。</p>
   </section>
 
   <!-- 2: THE BAR -->
   <section class="section" id="s2">
 
     <h3>酒吧</h3>
-    <p class="lead">這是這個問題最簡單的版本。想像您走進一間酒吧,裡頭有一百個人。</p>
-    <p>其中三個人在大吼大叫——吼政治、吼彼此、吼任何能引起反應的東西。另外九十七個人則以正常音量在聊天。但門口有一位保鑣,他的薪水按您「停下來盯著看的分鐘數」計算。所以他把那三個最大聲的人接進音響系統,音量轉到最大。</p>
+    <p class="lead">這是這個問題最簡單的版本。想像您走進一間酒吧，裡頭有一百個人。</p>
+    <p>其中三個人在大吼大叫——吼政治、吼彼此、吼任何能引起反應的東西。另外九十七個人則以正常音量在聊天。但門口有一位保鑣，他的薪水按您「停下來盯著看的分鐘數」計算。所以他把那三個最大聲的人接進音響系統，音量轉到最大。</p>
 
     <div class="bar-scene">
       <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
@@ -1407,21 +1424,21 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       </svg>
     </div>
 
-    <p>您一走進去,聽見的是那陣咆哮,於是下結論:<em>這個地方都是瘋子。</em>從未聽見幾步之外那 97 個人在正常交談。您<em>可以</em>離開,但您的朋友都在裡頭。您被困住了。</p>
-    <p>這就是社群媒體處理爭議性議題的方式。那位保鑣是演算法。而不論您喜不喜歡,您一直都是那位旁觀者。</p>
-    <p>挑一個爭議性議題。您的動態消息看起來,可能就像下面這樣。</p>
+    <p>您一走進去，聽見的是那陣咆哮，於是下結論：<em>這個地方都是瘋子。</em>從未聽見幾步之外那 97 個人在正常交談。您<em>可以</em>離開，但您的朋友都在裡頭。您被困住了。</p>
+    <p>這就是社群媒體處理爭議性議題的方式。那位保鑣是演算法。而不論您喜不喜歡，您一直都是那位旁觀者。</p>
+    <p>挑一個爭議性議題。您的動態消息看起來，可能就像下面這樣。</p>
 
     <div class="topic-tabs" id="topic-tabs"></div>
     <div class="feed-demo" id="feed-demo"></div>
 
-    <p style="margin-top:24px">讀著這份動態消息,您可能合理地下結論:這個國家被失控的兩種極端撕裂了。事實並非如此。而「美國人實際上相信什麼」與「動態消息暗示他們相信什麼」之間的落差,可能是平台從未向您展示過、後果最嚴重的一件事。</p>
+    <p style="margin-top:24px">讀著這份動態消息，您可能合理地下結論：這個國家被失控的兩種極端撕裂了。事實並非如此。而「美國人實際上相信什麼」與「動態消息暗示他們相信什麼」之間的落差，可能是平台從未向您展示過、後果最嚴重的一件事。</p>
   </section>
 
   <!-- 3: THE ROOM -->
   <section class="section" id="s3">
 
     <h3>看見這個房間</h3>
-    <p>讓我們把它視覺化為一個房間,裡頭有 100 個人。它看起來是這樣:</p>
+    <p>讓我們把它視覺化為一個房間，裡頭有 100 個人。它看起來是這樣：</p>
 
     <div class="room-container" id="room-container">
       <div class="room-grid" id="room-grid"></div>
@@ -1434,7 +1451,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
         <div class="cascade-landing" id="cascade-landing"></div>
         <div class="cascade-headline" id="cascade-headline-2">
           <span class="ch-pct" style="color:var(--accent-red)">3%</span><span class="ch-arrow">&#8594;</span><span class="ch-pct" style="color:var(--accent-red)">33%</span>
-          <span class="ch-sub">在大多數平台上,約 3% 的帳號產出全部內容的 1/3</span>
+          <span class="ch-sub">在大多數平台上，約 3% 的帳號產出全部內容的 1/3</span>
         </div>
         <div class="content-blocks" id="content-blocks"></div>
         <div class="content-stat" id="content-stat"></div>
@@ -1463,32 +1480,32 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       <div class="room-next-row" id="room-next-row">
         <button class="room-next-btn" id="room-next-btn" onclick="advanceRoom()">看看他們的內容 &#8594;</button>
       </div>
-      <div class="room-label" id="room-label"><strong>真實的房間。</strong>每 100 位使用者中,只有 3 位曾發布過嚴重的有毒內容。</div>
+      <div class="room-label" id="room-label"><strong>真實的房間。</strong>每 100 位使用者中，只有 3 位曾發布過嚴重的有毒內容。</div>
     </div>
 
-    <p>這個模式在各平台上反覆出現。在 Twitter/X 上,有毒推文獲得的轉推數比非有毒推文多<a href="https://doi.org/10.1126/science.adl4435" target="_blank">約 86%</a>,曝光多約 27%;<a href="https://doi.org/10.1126/science.adl4435" target="_blank">0.3% 的使用者分享了 80% 的爭議性新聞</a>,<span class="cite">14</span>而僅<a href="https://press.princeton.edu/books/hardcover/9780691203423/breaking-the-social-media-prism" target="_blank">6% 的使用者就產出了約 73% 的政治推文</a>。<span class="cite">16</span>在 TikTok 上,<a href="https://www.pewresearch.org/internet/2024/02/22/how-u-s-adults-use-tiktok/" target="_blank">25% 的使用者產出 98% 的公開影片</a>。<span class="cite">15</span>具體數字會變,但動態都一樣:一小群高度活躍的使用者壓倒了多數。</p>
-    <p>在這個房間裡消費內容一段時間後,您的大腦會進行一種「環境式人口普查」。動態消息成了某種人口統計資料。您理性地下結論——這種行為一定很普遍。這個房間可能就是充滿了極端的人!也許大多數人<em>真的</em>相信這些瘋狂的事。</p>
+    <p>這個模式在各平台上反覆出現。在 Twitter/X 上，有毒推文獲得的轉推數比非有毒推文多<a href="https://doi.org/10.1126/science.adl4435" target="_blank">約 86%</a>，曝光多約 27%;<a href="https://doi.org/10.1126/science.adl4435" target="_blank">0.3% 的使用者分享了 80% 的爭議性新聞</a>，<span class="cite">14</span>而僅<a href="https://press.princeton.edu/books/hardcover/9780691203423/breaking-the-social-media-prism" target="_blank">6% 的使用者就產出了約 73% 的政治推文</a>。<span class="cite">16</span>在 TikTok 上，<a href="https://www.pewresearch.org/internet/2024/02/22/how-u-s-adults-use-tiktok/" target="_blank">25% 的使用者產出 98% 的公開影片</a>。<span class="cite">15</span>具體數字會變，但動態都一樣：一小群高度活躍的使用者壓倒了多數。</p>
+    <p>在這個房間裡消費內容一段時間後，您的大腦會進行一種「環境式人口普查」。動態消息成了某種人口統計資料。您理性地下結論——這種行為一定很普遍。這個房間可能就是充滿了極端的人！也許大多數人<em>真的</em>相信這些瘋狂的事。</p>
   </section>
 
   <!-- 4: THE CASCADE -->
   <section class="section" id="s4">
 
     <h3>這不只是關於我們在社群媒體上看見什麼</h3>
-    <p class="lead">如果這只關乎社群貼文的語氣,那其實沒那麼要緊。但這個扭曲最終會引發一些嚴重的行為模式。</p>
+    <p class="lead">如果這只關乎社群貼文的語氣，那其實沒那麼要緊。但這個扭曲最終會引發一些嚴重的行為模式。</p>
     <span class="step-label">模式一</span>
     <span class="step-title">多數陷入沉默</span>
-    <p>當大多數人看著動態消息,並假設自己屬於少數時,他們經常會<a href="https://doi.org/10.1111/j.1460-2466.1974.tb00367.x" target="_blank">自我審查</a>。<span class="cite">3</span>這個動態<a href="https://doi.org/10.1016/j.techsoc.2023.102431" target="_blank">在社群媒體上重現</a>。<span class="cite">17</span>對社會孤立的恐懼,會壓抑人們在「自己被認為不受歡迎的平台上」表達意見。他們安靜下來,或乾脆離開平台。他們把空間讓給政治立場更極端的使用者。</p>
+    <p>當大多數人看著動態消息，並假設自己屬於少數時，他們經常會<a href="https://doi.org/10.1111/j.1460-2466.1974.tb00367.x" target="_blank">自我審查</a>。<span class="cite">3</span>這個動態<a href="https://doi.org/10.1016/j.techsoc.2023.102431" target="_blank">在社群媒體上重現</a>。<span class="cite">17</span>對社會孤立的恐懼，會壓抑人們在「自己被認為不受歡迎的平台上」表達意見。他們安靜下來，或乾脆離開平台。他們把空間讓給政治立場更極端的使用者。</p>
     <span class="step-label">模式二</span>
     <span class="step-title">大聲的少數以為自己是多數</span>
-    <p>那些積極發文的少數,最終也產生了自己的扭曲——相信自己屬於多數。<span class="cite">5</span></p>
-    <p>一份<a href="https://doi.org/10.1093/poq/nfn056" target="_blank">針對 17 個極端主義論壇的研究</a>發現了同樣的模式:某人發文越多,就越相信公眾與他意見相同。越投入的參與,催生了越強的錯誤共識。</p>
+    <p>那些積極發文的少數，最終也產生了自己的扭曲——相信自己屬於多數。<span class="cite">5</span></p>
+    <p>一份<a href="https://doi.org/10.1093/poq/nfn056" target="_blank">針對 17 個極端主義論壇的研究</a>發現了同樣的模式：某人發文越多，就越相信公眾與他意見相同。越投入的參與，催生了越強的錯誤共識。</p>
     <span class="step-label">模式三</span>
     <span class="step-title">每個人都搞錯了彼此</span>
-    <p>兩邊都對「另一邊到底是什麼樣的人」發展出<a href="https://doi.org/10.1086/697253" target="_blank">極不準確的信念</a>。<span class="cite">6</span>看看您自己的某些信念有多吻合:</p>
+    <p>兩邊都對「另一邊到底是什麼樣的人」發展出<a href="https://doi.org/10.1086/697253" target="_blank">極不準確的信念</a>。<span class="cite">6</span>看看您自己的某些信念有多吻合：</p>
 
     <div class="misperception-quiz" id="misperception-quiz">
       <div class="mq-question" id="mq-q1">
-        <div class="mq-q-text">您認為,<strong>民主黨支持者</strong>中有多少比例是 LGBTQ?</div>
+        <div class="mq-q-text">您認為，<strong>民主黨支持者</strong>中有多少比例是 LGBTQ?</div>
         <div class="guess-slider-row">
           <input type="range" class="guess-slider" id="mq-slider-1" min="0" max="100" value="50">
           <div class="slider-pulse-ring"></div>
@@ -1499,7 +1516,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
         <div id="mq-reveal-1"></div>
       </div>
       <div class="mq-question" id="mq-q2">
-        <div class="mq-q-text">您認為,<strong>共和黨支持者</strong>中有多少比例年收入超過 25 萬美元?</div>
+        <div class="mq-q-text">您認為，<strong>共和黨支持者</strong>中有多少比例年收入超過 25 萬美元？</div>
         <div class="guess-slider-row">
           <input type="range" class="guess-slider" id="mq-slider-2" min="0" max="100" value="50">
           <div class="slider-pulse-ring"></div>
@@ -1511,7 +1528,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       </div>
       <div id="mq-reveal"></div>
     </div>
-    <p>這個扭曲延伸到政策信念上。一步一步看下去,看看在<strong>移民議題</strong>上的認知落差。</p>
+    <p>這個扭曲延伸到政策信念上。一步一步看下去，看看在<strong>移民議題</strong>上的認知落差。</p>
 
     <div class="pg-container" id="pg-container">
       <div class="pg-svg-wrap" style="position:relative">
@@ -1523,22 +1540,22 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       </div>
       <div class="pg-gap-label" id="pg-gap-label"></div>
       <div class="pg-label" id="pg-label"></div>
-      <div class="pg-source" id="pg-source">資料來源:More in Common(2019)與 Moore-Berg 等人,PNAS 2020。示意圖。</div>
+      <div class="pg-source" id="pg-source">資料來源：More in Common(2019)與 Moore-Berg 等人，PNAS 2020。示意圖。</div>
     </div>
 
     <span class="step-label">模式四</span>
-    <span class="step-title">政治人物追隨「感知到的房間」,而非真實的房間</span>
-    <p>民選官員非常擅長感知政治情緒。那本來就是他們的工作。(他們<em>並非</em>被選來修正人民信念的。)</p>
-    <p>能圍繞「感知到的信念」組成聯盟的政治人物,比較可能勝選。他們把自己定位為對抗一個並不存在、但支持者<em>認為存在</em>的對手。</p>
-    <p>請記得:現在我們大部分的政治都發生在社群媒體上。候選人通常讀的也是同一份扭曲的動態消息。他們不太可能改變想法。</p>
-    <p>論述的窗口因此移動。不是因為意見變了,而是因為對「意見」的<em>認知</em>變了。</p>
+    <span class="step-title">政治人物追隨「感知到的房間」，而非真實的房間</span>
+    <p>民選官員非常擅長感知政治情緒。那本來就是他們的工作。（他們<em>並非</em>被選來修正人民信念的。）</p>
+    <p>能圍繞「感知到的信念」組成聯盟的政治人物，比較可能勝選。他們把自己定位為對抗一個並不存在、但支持者<em>認為存在</em>的對手。</p>
+    <p>請記得：現在我們大部分的政治都發生在社群媒體上。候選人通常讀的也是同一份扭曲的動態消息。他們不太可能改變想法。</p>
+    <p>論述的窗口因此移動。不是因為意見變了，而是因為對「意見」的<em>認知</em>變了。</p>
     <span class="step-label">模式五</span>
     <span class="step-title">錯誤認知轉化為敵意</span>
-    <p>當您相信另一邊是極端的,您就會<a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">更願意把他們當作威脅</a>。<span class="cite">7</span></p>
-    <p>民主黨人與共和黨人都<b>大幅高估了另一邊有多少人支持政治暴力。</b>結果就是:整個社會做好了「假設另一邊隨時準備做出可怕事情」的心理準備。</p>
+    <p>當您相信另一邊是極端的，您就會<a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">更願意把他們當作威脅</a>。<span class="cite">7</span></p>
+    <p>民主黨人與共和黨人都<b>大幅高估了另一邊有多少人支持政治暴力。</b>結果就是：整個社會做好了「假設另一邊隨時準備做出可怕事情」的心理準備。</p>
 
     <div class="reveal-box" id="pv-box" style="padding:28px 32px 52px;background:var(--bg-raised);border-color:var(--border-bright);position:relative">
-      <div class="pv-q">「另一邊有多少比例支持政治暴力?」</div>
+      <div class="pv-q">「另一邊有多少比例支持政治暴力？」</div>
 
       <div class="pv-row">
         <div class="pv-head">
@@ -1569,12 +1586,12 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       </div>
 
       <div class="pv-act" id="pv-act">
-        <button class="pv-btn" onclick="pvReveal()">實際數字是多少? &rarr;</button>
+        <button class="pv-btn" onclick="pvReveal()">實際數字是多少？ &rarr;</button>
       </div>
 
-      <div class="pv-take" id="pv-take">兩邊都錯了<strong>三到四倍</strong>。當研究者修正這些信念後,黨派敵意隨之下降。</div>
+      <div class="pv-take" id="pv-take">兩邊都錯了<strong>三到四倍</strong>。當研究者修正這些信念後，黨派敵意隨之下降。</div>
 
-      <div class="pv-src"><a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">Mernyk 等人,PNAS 2022</a> &middot; n=4,741</div>
+      <div class="pv-src"><a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">Mernyk 等人，PNAS 2022</a> &middot; n=4,741</div>
     </div>
 
     <p>每一步都餵養下一步。這個扭曲會自我強化。</p>
@@ -1584,9 +1601,9 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
   <section class="section" id="s5">
 
     <h3>知道還不夠</h3>
-    <p>好。所以現在您<em>知道</em>了:一小群人主宰了動態消息。</p>
-    <p>您知道:共和黨人與民主黨人,實際上對爭議性議題有遠為細緻的看法。</p>
-    <p><strong>這樣就解決了嗎?</strong>沒有。您還知道:<em>其他人</em>並不知道這件事。而如果這個世界繼續以「扭曲是真實的」為前提運轉下去,那麼您大概也得照樣行動——即使您知道那是錯的。房間並未改變,即使您知道裡頭的人都搞混了。</p>
+    <p>好。所以現在您<em>知道</em>了：一小群人主宰了動態消息。</p>
+    <p>您知道：共和黨人與民主黨人，實際上對爭議性議題有遠為細緻的看法。</p>
+    <p><strong>這樣就解決了嗎？</strong>沒有。您還知道：<em>其他人</em>並不知道這件事。而如果這個世界繼續以「扭曲是真實的」為前提運轉下去，那麼您大概也得照樣行動——即使您知道那是錯的。房間並未改變，即使您知道裡頭的人都搞混了。</p>
     <p>這叫做<strong>共同知識問題</strong>(common knowledge problem)。</p>
     <div class="knowledge-toggle-row">
       <button class="knowledge-toggle private active" id="k-toggle-private" onclick="setKnowledge('private')">
@@ -1608,21 +1625,21 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
         <div class="knowledge-panel-text" id="k-panel-text">您讀到了那個數據。但您不知道還有誰也讀過。動態消息看起來依舊一樣。您依舊以為自己屬於少數。您保持沉默。</div>
       </div>
     </div>
-    <p>史迪芬・平克(Steven Pinker)在他近期的傑作《<a href="https://www.simonandschuster.com/books/When-Everyone-Knows-That-Everyone-Knows/Steven-Pinker/9781668011577" target="_blank">當每個人都知道每個人都知道</a>》(<em>When Everyone Knows&nbsp;That Everyone Knows</em>)<span class="cite">8</span>中,把這件事說得很清楚。學到一項事實,改變的是您「<em>知道</em>什麼」。看見它被公開展示——其他人也都看得到、且您知道別人也看得到——改變的則是「每個人知道什麼」,接著也就改變了他們<em>如何行動</em>。</p>
-    <p>社群媒體沒有公共廣場。它有 3 億扇私人窗戶,每一扇都映出同一個房間的不同扭曲。把我們之間的共同想法照亮,有可能徹底改變這一切。</p>
+    <p>史迪芬・平克(Steven Pinker)在他近期的傑作《<a href="https://www.simonandschuster.com/books/When-Everyone-Knows-That-Everyone-Knows/Steven-Pinker/9781668011577" target="_blank">當每個人都知道每個人都知道</a>》(<em>When Everyone Knows&nbsp;That Everyone Knows</em>)<span class="cite">8</span>中，把這件事說得很清楚。學到一項事實，改變的是您「<em>知道</em>什麼」。看見它被公開展示——其他人也都看得到、且您知道別人也看得到——改變的則是「每個人知道什麼」，接著也就改變了他們<em>如何行動</em>。</p>
+    <p>社群媒體沒有公共廣場。它有 3 億扇私人窗戶，每一扇都映出同一個房間的不同扭曲。把我們之間的共同想法照亮，有可能徹底改變這一切。</p>
   </section>
 
   <!-- 6: THE INTERVENTION -->
   <section class="section" id="s6">
 
     <h3>構想</h3>
-    <p>那我們能做什麼?</p>
-    <p>幸運的是,有不少好的證據顯示這是可以修復的。多項研究顯示,當錯誤認知被公開地修正時,敵意會下降。Mernyk 等人發現,<a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">一次修正就能讓黨派敵意降低長達一個月</a>。<span class="cite">7</span>Lee 等人發現,<a href="https://doi.org/10.1093/pnasnexus/pgaf310" target="_blank">修正對「有毒使用者比例」的高估,能改善人們對國家與彼此的感受</a>。<span class="cite">1</span></p>
+    <p>那我們能做什麼？</p>
+    <p>幸運的是，有不少好的證據顯示這是可以修復的。多項研究顯示，當錯誤認知被公開地修正時，敵意會下降。Mernyk 等人發現，<a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">一次修正就能讓黨派敵意降低長達一個月</a>。<span class="cite">7</span>Lee 等人發現，<a href="https://doi.org/10.1093/pnasnexus/pgaf310" target="_blank">修正對「有毒使用者比例」的高估，能改善人們對國家與彼此的感受</a>。<span class="cite">1</span></p>
     <p class="lead"><b>這件事今天就能做。</b></p>
-    <p>想像一下:每一則關於爭議議題的貼文下方,都有一條安靜的小連結。不是事實查核、不是標籤、也不是警告。而是——如果它是一則<strong><em>社群核實(Community Check)</em></strong>呢?</p>
+    <p>想像一下：每一則關於爭議議題的貼文下方，都有一條安靜的小連結。不是事實查核、不是標籤、也不是警告。而是——如果它是一則<strong><em>社群核實(Community Check)</em></strong>呢？</p>
     <div class="cc-question-header" style="cursor:pointer" onclick="document.getElementById('cc-inline-poll').classList.toggle('hidden'); var h=document.getElementById('cc-inline-hint'); if(h) h.style.display='none';">
       <span class="cc-question-dot"></span>
-      <h3>人們對這件事實際上怎麼想? <span style="font-size:18px; opacity:0.6">&#8594;</span></h3>
+      <h3>人們對這件事實際上怎麼想？ <span style="font-size:18px; opacity:0.6">&#8594;</span></h3>
     </div>
     <span id="cc-inline-hint" style="display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:15px; font-weight:700; color:var(--accent-green); animation:ccHintBounce 1.5s ease-in-out infinite; margin-top:8px; margin-bottom:4px"><span style="font-size:20px">&#8593;</span> 點這裡</span>
     <div id="cc-inline-poll" class="hidden" style="background:var(--accent-green-dim); border:1px solid rgba(22,163,74,0.2); border-radius:10px; padding:20px 24px; margin-bottom:24px; animation:fadeSlide 0.35s ease-out">
@@ -1630,7 +1647,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
         <span style="width:6px; height:6px; border-radius:50%; background:var(--accent-green); display:inline-block"></span>
         社群核實 Community Check · 本平台
       </div>
-      <div style="font-family:var(--serif); font-size:16px; font-weight:600; color:var(--text); margin-bottom:16px; line-height:1.4">人們在這個議題上的立場為何?</div>
+      <div style="font-family:var(--serif); font-size:16px; font-weight:600; color:var(--text); margin-bottom:16px; line-height:1.4">人們在這個議題上的立場為何？</div>
       <div style="margin-bottom:10px">
         <div style="font-family:var(--mono); font-size:22px; font-weight:800; color:var(--accent-green); margin-bottom:2px">72% <span style="display:inline-block; height:10px; width:72%; max-width:280px; background:var(--accent-green); border-radius:3px; vertical-align:middle; margin-left:4px"></span></div>
         <div style="font-family:var(--mono); font-size:12px; color:var(--text-secondary)">支持</div>
@@ -1644,13 +1661,13 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
         <div style="font-family:var(--mono); font-size:12px; color:var(--text-secondary)">反對</div>
       </div>
     </div>
-    <p><strong><em>社群核實</em></strong>是一層開源的設計,可部署於社群媒體上,出現在爭議性貼文下方,協助使用者理解平台上(或全國)其他人實際上對某議題抱持什麼想法。</p>
-    <p>這是一種為最熱門的爆紅議題,快速補上脈絡的方式,讓人們對公眾意見有更高的可見度。</p>
+    <p><strong><em>社群核實</em></strong>是一層開源的設計，可部署於社群媒體上，出現在爭議性貼文下方，協助使用者理解平台上（或全國）其他人實際上對某議題抱持什麼想法。</p>
+    <p>這是一種為最熱門的爆紅議題，快速補上脈絡的方式，讓人們對公眾意見有更高的可見度。</p>
   </section>
 
   <section class="section">
     <h3>構想付諸實行</h3>
-    <p>讓我們以一個跨越政治認同的議題,來探索這個介入機制:</p>
+    <p>讓我們以一個跨越政治認同的議題，來探索這個介入機制：</p>
     <h4 style="font-size:22px; margin-top:32px; margin-bottom:28px; font-family:var(--display); font-weight:700; color:var(--text); display:flex; align-items:center; gap:14px; text-align:left">
       <span style="position:relative; flex-shrink:0; width:64px; height:38px; display:inline-block">
         <svg aria-hidden="true" viewBox="0 0 36 20" style="position:absolute; left:0; top:14px; width:42px; height:24px; transform:rotate(-22deg); opacity:0.7">
@@ -1674,9 +1691,9 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       </span>
       <span>政治中的金錢</span>
     </h4>
-    <p>表面上,這看起來很有爭議。但事實上這是一個超大多數議題:<strong>81%</strong> 的人擔心金錢對選舉的影響,包括 <strong>78% 的共和黨人</strong>與 <strong>90% 的民主黨人</strong>。<strong>75%</strong> 認為無限制的選舉花費削弱民主。只有 <strong>15%</strong> 相信無限制的政治花費是受保護的言論自由。</p>
-    <p>然而,實際上幾乎沒有改變,主要是因為每個人都以為另一邊覺得沒關係。動態消息上滿是人們捍衛自己陣營的金主、攻擊另一陣營的金主。它看起來像是 50 對 50 的黨派戰爭,但其實不是。那是一個看不見自己的多數共識。</p>
-    <p><strong>如果您能看見這個共識呢?</strong></p>
+    <p>表面上，這看起來很有爭議。但事實上這是一個超大多數議題：<strong>81%</strong> 的人擔心金錢對選舉的影響，包括 <strong>78% 的共和黨人</strong>與 <strong>90% 的民主黨人</strong>。<strong>75%</strong> 認為無限制的選舉花費削弱民主。只有 <strong>15%</strong> 相信無限制的政治花費是受保護的言論自由。</p>
+    <p>然而，實際上幾乎沒有改變，主要是因為每個人都以為另一邊覺得沒關係。動態消息上滿是人們捍衛自己陣營的金主、攻擊另一陣營的金主。它看起來像是 50 對 50 的黨派戰爭，但其實不是。那是一個看不見自己的多數共識。</p>
+    <p><strong>如果您能看見這個共識呢？</strong></p>
 
     <div class="mockup-wrap" id="mockup-wrap">
       <div class="mockup-frame">
@@ -1684,14 +1701,14 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
           <div class="mockup-avatar"><svg viewBox="0 0 11 12"><rect x="2.5" y="0.3" width="6" height="5.4" rx="1.6" fill="var(--text-tertiary)"/><path d="M0,12 Q0,6.5 5.5,6.5 Q11,6.5 11,12Z" fill="var(--text-tertiary)"/></svg></div>
           <div class="mockup-body">
             <div class="mockup-user" id="mockup-user">@real_talk_politics · 2 小時前</div>
-            <div class="mockup-text" id="mockup-text">每個人都在抱怨政治中的金錢,但只要自己支持的候選人收到一大筆捐款,馬上就閉嘴。你不是討厭政治中有錢,你是討厭「另一邊」拿得比較多。</div>
+            <div class="mockup-text" id="mockup-text">每個人都在抱怨政治中的金錢，但只要自己支持的候選人收到一大筆捐款，馬上就閉嘴。你不是討厭政治中有錢，你是討厭「另一邊」拿得比較多。</div>
             <div class="mockup-actions"><span>&#9825; 11,847</span><span>&#128172; 6,203</span><span>&#8635; 2,891</span></div>
           </div>
         </div>
         <div class="cc-link-bar" id="cc-link-bar">
           <button class="cc-link" id="cc-link" onclick="showMoneyCheck()">
             <div class="cc-dot"></div>
-            <span class="cc-text">人們對這件事實際上怎麼想? &#8594;</span>
+            <span class="cc-text">人們對這件事實際上怎麼想？ &#8594;</span>
           </button>
         </div>
       </div>
@@ -1699,15 +1716,15 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
     </div>
     <span class="cc-click-hint" id="cc-click-hint"><span class="cc-click-hint-arrow">&#8593;</span> 點這裡</span>
     <div id="post-reveal-text" style="margin-top:24px">
-      <p><strong><em>社群核實</em></strong>取材自<strong>平台使用者的隨機樣本 + 可靠的全國民調</strong>,獨立於內容之外進行調查。樣本在統計上具代表性。結果持續更新。而最關鍵的是:<em>每個人看到一樣的數字</em>。</p>
+      <p><strong><em>社群核實</em></strong>取材自<strong>平台使用者的隨機樣本 + 可靠的全國民調</strong>，獨立於內容之外進行調查。樣本在統計上具代表性。結果持續更新。而最關鍵的是：<em>每個人看到一樣的數字</em>。</p>
     </div>
   </section>
 
   <section class="section" id="s8" style="margin-top:0; padding-top:0">
 
-    <h3>為什麼這不是事實查核,也不是觀眾投票</h3>
-    <p>傳統的事實查核是一種由上而下的做法,常給人一種「上頭在指揮」的感覺。這對人們來說很難消化。多年來,內容審核一直被認為是「在移除言論」。社群核實只是補上脈絡,就像群眾外包的<a href="https://communitynotes.x.com/guide/en/about/introduction" target="_blank">「社群備註」(Community Notes)</a>(本專案的靈感來源之一)那樣。</p>
-    <p>這也不只是貼文下方的使用者投票。它是從所有平台使用者中取樣,並結合具統計顯著性的全國調查。這是一扇通往「多數真實意見」的窗,不只是「正在看這則貼文的人」的意見。</p>
+    <h3>為什麼這不是事實查核，也不是觀眾投票</h3>
+    <p>傳統的事實查核是一種由上而下的做法，常給人一種「上頭在指揮」的感覺。這對人們來說很難消化。多年來，內容審核一直被認為是「在移除言論」。社群核實只是補上脈絡，就像群眾外包的<a href="https://communitynotes.x.com/guide/en/about/introduction" target="_blank">「社群備註」(Community Notes)</a>（本專案的靈感來源之一）那樣。</p>
+    <p>這也不只是貼文下方的使用者投票。它是從所有平台使用者中取樣，並結合具統計顯著性的全國調查。這是一扇通往「多數真實意見」的窗，不只是「正在看這則貼文的人」的意見。</p>
   </section>
 
   <!-- 7b: SHORT-FORM VIDEO MOCKUP -->
@@ -1753,7 +1770,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
               <span>社群核實 Community Check</span>
               <button class="sfv-cc-close" onclick="sfvCollapse()">&#10005;</button>
             </div>
-            <div class="sfv-cc-question">平台使用者與美國人怎麼想?</div>
+            <div class="sfv-cc-question">平台使用者與美國人怎麼想？</div>
             <div class="sfv-cc-bars">
               <div class="sfv-cc-bar-row"><div class="sfv-cc-bar" style="width:83%;background:#16a34a"><span>83%</span></div><div class="sfv-cc-bar-label">贊成修憲以允許設定花費上限</div></div>
               <div class="sfv-cc-bar-row"><div class="sfv-cc-bar" style="width:81%;background:#22c55e"><span>81%</span></div><div class="sfv-cc-bar-label">表示擔心金錢對政治的影響</div></div>
@@ -1767,7 +1784,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
               <span class="sfv-pinned-badge">已釘選</span>
               <span class="sfv-pinned-by">社群核實 Community Check</span>
             </div>
-            <div class="sfv-pinned-text">社群核實:83% 的美國人贊成允許對政治花費設限。15% 認為無限制花費是言論自由。<strong>看看社群怎麼想 &#8599;</strong></div>
+            <div class="sfv-pinned-text">社群核實：83% 的美國人贊成允許對政治花費設限。15% 認為無限制花費是言論自由。<strong>看看社群怎麼想 &#8599;</strong></div>
           </div>
         </div>
       </div>
@@ -1790,9 +1807,9 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
           <span class="sfv-step-label">釘選留言</span>
         </button>
       </div>
-      <div class="sfv-step-desc" id="sfv-step-desc">一則政治影片越過了互動門檻。51K 觀看,612 則留言(1.2%),1.7K 分享(3.4%)。動態消息呈現的是憤怒。但人們實際上怎麼想?</div>
+      <div class="sfv-step-desc" id="sfv-step-desc">一則政治影片越過了互動門檻。51K 觀看，612 則留言(1.2%),1.7K 分享(3.4%)。動態消息呈現的是憤怒。但人們實際上怎麼想？</div>
       <p style="margin-top:24px; text-align:center; font-size:14px; color:var(--text-tertiary);">
-        <a href="#tech-spec" style="color:var(--accent-green); text-decoration:underline; cursor:pointer;">下方查看技術規格,了解運作方式 &#8595;</a>
+        <a href="#tech-spec" style="color:var(--accent-green); text-decoration:underline; cursor:pointer;">下方查看技術規格，了解運作方式 &#8595;</a>
       </p>
     </div>
   </section>
@@ -1800,9 +1817,9 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
   <!-- 9: THE ASK -->
   <section class="section" id="s9">
     <h3>這件事我們現在就能做</h3>
-    <p>平台早已具備大量這些能力。它們本來就在對使用者做問卷。它們甚至知道如何執行精密的民調。還有一些技術細節要處理(<a href="#tech-spec">規格在此</a>),但這不是個難解的問題。</p>
-    <p>那個看不見的多數,就是公眾。而公眾值得認識自己。</p>
-    <p>一小群人,主宰著動態消息。事情從來就是這樣。我們其他人一直都在這裡,安靜、體面,等著被看見。</p>
+    <p>平台早已具備大量這些能力。它們本來就在對使用者做問卷。它們甚至知道如何執行精密的民調。還有一些技術細節要處理（<a href="#tech-spec">規格在此</a>），但這不是個難解的問題。</p>
+    <p>那個看不見的多數，就是公眾。而公眾值得認識自己。</p>
+    <p>一小群人，主宰著動態消息。事情從來就是這樣。我們其他人一直都在這裡，安靜、體面，等著被看見。</p>
 
     <p style="margin-top:28px; text-align:center; font-family:var(--mono); font-size:12px; color:var(--text-tertiary)"><a href="https://tobias.substack.com" target="_blank" style="color:var(--text-tertiary); border-bottom:1px solid var(--text-tertiary)">追蹤我的其他作品</a></p>
 
@@ -1819,14 +1836,14 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       <h3>對社群核實本身的一次社群核實</h3>
       <span class="live-cc-badge"><span class="live-cc-badge-dot"></span><span class="live-cc-badge-text">即時</span></span>
     </div>
-    <p class="lead">兩個簡短問題。然後看看其他讀者怎麼回答——就在這裡,即時更新。</p>
+    <p class="lead">兩個簡短問題。然後看看其他讀者怎麼回答——就在這裡，即時更新。</p>
 
     <div class="live-cc-box">
       <div id="lcc-q1" class="live-cc-step">
         <div class="live-cc-q-num">第 1 / 2 題</div>
-        <div class="live-cc-q">如果社群媒體貼文下方出現具代表性的民調資料,會改變您詮釋這些貼文的方式嗎?</div>
+        <div class="live-cc-q">如果社群媒體貼文下方出現具代表性的民調資料，會改變您詮釋這些貼文的方式嗎？</div>
         <div class="live-cc-choices">
-          <button class="live-cc-btn" data-q="q1" data-val="yes_definitely">是的,絕對會</button>
+          <button class="live-cc-btn" data-q="q1" data-val="yes_definitely">是的，絕對會</button>
           <button class="live-cc-btn" data-q="q1" data-val="probably">很可能會</button>
           <button class="live-cc-btn" data-q="q1" data-val="not_sure">不確定</button>
           <button class="live-cc-btn" data-q="q1" data-val="probably_not">很可能不會</button>
@@ -1836,10 +1853,10 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
 
       <div id="lcc-q2" class="live-cc-step hidden">
         <div class="live-cc-q-num">第 2 / 2 題</div>
-        <div class="live-cc-q">平台應該在爭議性貼文旁,顯示具代表性的民調資料嗎?</div>
+        <div class="live-cc-q">平台應該在爭議性貼文旁，顯示具代表性的民調資料嗎？</div>
         <div class="live-cc-choices">
           <button class="live-cc-btn" data-q="q2" data-val="yes">應該</button>
-          <button class="live-cc-btn" data-q="q2" data-val="yes_conditions">應該,但須附條件</button>
+          <button class="live-cc-btn" data-q="q2" data-val="yes_conditions">應該，但須附條件</button>
           <button class="live-cc-btn" data-q="q2" data-val="not_sure">不確定</button>
           <button class="live-cc-btn" data-q="q2" data-val="no">不應該</button>
         </div>
@@ -1858,7 +1875,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
   <section class="section" id="share">
     <div class="share-section">
       <h3>協助讓沉默的多數浮現</h3>
-      <p>如果這篇文章改變了您看待動態消息的方式,請把它分享給可能也需要看見的人。</p>
+      <p>如果這篇文章改變了您看待動態消息的方式，請把它分享給可能也需要看見的人。</p>
 
       <div class="share-buttons">
         <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">
@@ -1873,11 +1890,11 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.74-1.757-.51-.586-1.297-.883-2.34-.89h-.033c-.838 0-1.967.227-2.683 1.301L8.823 7.366c.96-1.435 2.518-2.226 4.396-2.226h.046c3.143.02 5.014 1.953 5.2 5.326.106.046.21.094.314.143 1.46.685 2.527 1.724 3.086 3.005.7805 1.789.85 4.701-1.541 7.083-1.83 1.831-4.04 2.564-7.156 2.604l-.002-.001zm1.252-12.9c-.18 0-.4-.011-.598.012a4.547 4.547 0 0 0-2.327.83c-.387.346-.585.806-.55 1.298.04.633.323 1.075.823 1.398.554.359 1.354.516 2.246.466 1.012-.058 1.749-.319 2.298-.83.563-.524.842-1.291.846-2.292-.85-.547-1.74-.834-2.738-.882h-.001z"/></svg>
           Threads
         </a>
-        <a class="share-btn" id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fthenoisyroom.com" target="_blank" rel="noopener">
+        <a class="share-btn" id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcommunitycheck.audreyt.org" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
-        <a class="share-btn" id="share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthenoisyroom.com" target="_blank" rel="noopener">
+        <a class="share-btn" id="share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcommunitycheck.audreyt.org" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           Facebook
         </a>
@@ -1894,7 +1911,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       <div class="share-divider"><span>保持聯繫</span></div>
 
       <div class="email-signup">
-        <p>當社群核實上線、或被平台採用時,讓您收到通知。</p>
+        <p>當社群核實上線、或被平台採用時，讓您收到通知。</p>
         <div id="email-form-container">
           <form class="email-form" id="email-form">
             <input type="email" id="email-input" placeholder="you@example.com" required autocomplete="email">
@@ -1906,7 +1923,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
 
     <div style="margin-top:32px;padding:28px 32px;border:1.5px solid var(--border-bright);border-radius:12px;background:var(--muted);text-align:center">
       <p style="font-family:var(--serif);font-size:17px;color:var(--text);margin:0 0 8px;font-style:italic">社群核實是一份自由且開放的規格。</p>
-      <p style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);margin:0 0 20px;line-height:1.6">完整的技術規格、研究基礎,以及未解問題,皆已公開,供研究者、工程師與平台設計師壓力測試與延伸建構。歡迎拿去用,請註明出處。</p>
+      <p style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);margin:0 0 20px;line-height:1.6">完整的技術規格、研究基礎，以及未解問題，皆已公開，供研究者、工程師與平台設計師壓力測試與延伸建構。歡迎拿去用，請註明出處。</p>
       <a href="https://github.com/rosestt/communitycheck" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:0.3px;color:var(--bg);background:var(--text);border-radius:8px;text-decoration:none;transition:opacity 0.2s">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         在 GitHub 查看
@@ -1917,23 +1934,23 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
   <!-- FOOTNOTES -->
   <div class="footnotes">
     <div class="footnotes-title">參考文獻</div>
-    <div class="fn" id="fn-1"><span class="fn-num">1</span> Lee、Neumann、Zaki 與 Hancock,<a href="https://doi.org/10.1093/pnasnexus/pgaf310" target="_blank">「Americans overestimate how many social media users post harmful content」</a>,<em>PNAS Nexus</em>, 4(12), 2025。n=1,090。基準資料:Kumar 等人,<a href="https://doi.org/10.1145/3543507.3583522" target="_blank">「Understanding the Behaviors of Toxic Accounts on Reddit」</a>,<em>WWW '23</em>, 2023。3.1% 的帳號產出 33.3% 的留言。</div>
-    <div class="fn" id="fn-2"><span class="fn-num">2</span> Grinberg 等人,<a href="https://doi.org/10.1126/science.aau2706" target="_blank">「Fake news on Twitter during the 2016 U.S. presidential election」</a>,<em>Science</em>, 363(6425), 2019。0.1% 的使用者占了被分享之爭議性新聞來源的近 80%。</div>
-    <div class="fn" id="fn-3"><span class="fn-num">3</span> Noelle-Neumann,<a href="https://doi.org/10.1111/j.1460-2466.1974.tb00367.x" target="_blank">「The Spiral of Silence」</a>,<em>J. Communication</em>, 24(2), 1974。</div>
-    <div class="fn" id="fn-4"><span class="fn-num">4</span> Hampton 等人,<a href="https://www.pewresearch.org/internet/2014/08/26/social-media-and-the-spiral-of-silence/" target="_blank">「Social Media and the 'Spiral of Silence'」</a>,Pew Research, 2014。</div>
-    <div class="fn" id="fn-5"><span class="fn-num">5</span> Wojcieszak,<a href="https://doi.org/10.1093/poq/nfn056" target="_blank">「False Consensus Goes Online」</a>,<em>Public Opinion Quarterly</em>, 72(4), 2008。</div>
-    <div class="fn" id="fn-6"><span class="fn-num">6</span> Ahler 與 Sood,<a href="https://doi.org/10.1086/697253" target="_blank">「The Parties in Our Heads」</a>,<em>J. Politics</em>, 80(3), 2018。高估 342%。</div>
-    <div class="fn" id="fn-7"><span class="fn-num">7</span> Mernyk 等人,<a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">「Correcting Inaccurate Metaperceptions」</a>,<em>PNAS</em>, 119(16), 2022。n=4,741。效果持續 1 個月。</div>
+    <div class="fn" id="fn-1"><span class="fn-num">1</span> Lee、Neumann、Zaki 與 Hancock，<a href="https://doi.org/10.1093/pnasnexus/pgaf310" target="_blank">「Americans overestimate how many social media users post harmful content」</a>，<em>PNAS Nexus</em>, 4(12), 2025。n=1,090。基準資料：Kumar 等人，<a href="https://doi.org/10.1145/3543507.3583522" target="_blank">「Understanding the Behaviors of Toxic Accounts on Reddit」</a>，<em>WWW '23</em>, 2023。3.1% 的帳號產出 33.3% 的留言。</div>
+    <div class="fn" id="fn-2"><span class="fn-num">2</span> Grinberg 等人，<a href="https://doi.org/10.1126/science.aau2706" target="_blank">「Fake news on Twitter during the 2016 U.S. presidential election」</a>，<em>Science</em>, 363(6425), 2019。0.1% 的使用者占了被分享之爭議性新聞來源的近 80%。</div>
+    <div class="fn" id="fn-3"><span class="fn-num">3</span> Noelle-Neumann，<a href="https://doi.org/10.1111/j.1460-2466.1974.tb00367.x" target="_blank">「The Spiral of Silence」</a>，<em>J. Communication</em>, 24(2), 1974。</div>
+    <div class="fn" id="fn-4"><span class="fn-num">4</span> Hampton 等人，<a href="https://www.pewresearch.org/internet/2014/08/26/social-media-and-the-spiral-of-silence/" target="_blank">「Social Media and the 'Spiral of Silence'」</a>，Pew Research, 2014。</div>
+    <div class="fn" id="fn-5"><span class="fn-num">5</span> Wojcieszak，<a href="https://doi.org/10.1093/poq/nfn056" target="_blank">「False Consensus Goes Online」</a>，<em>Public Opinion Quarterly</em>, 72(4), 2008。</div>
+    <div class="fn" id="fn-6"><span class="fn-num">6</span> Ahler 與 Sood，<a href="https://doi.org/10.1086/697253" target="_blank">「The Parties in Our Heads」</a>，<em>J. Politics</em>, 80(3), 2018。高估 342%。</div>
+    <div class="fn" id="fn-7"><span class="fn-num">7</span> Mernyk 等人，<a href="https://doi.org/10.1073/pnas.2116851119" target="_blank">「Correcting Inaccurate Metaperceptions」</a>，<em>PNAS</em>, 119(16), 2022。n=4,741。效果持續 1 個月。</div>
     <div class="fn" id="fn-8"><span class="fn-num">8</span> Pinker,<a href="https://www.simonandschuster.com/books/When-Everyone-Knows-That-Everyone-Knows/Steven-Pinker/9781668011577" target="_blank"><em>When Everyone Knows That Everyone Knows</em></a>,Scribner, 2025。</div>
-    <div class="fn" id="fn-9"><span class="fn-num">9</span> 槍枝民調:<a href="https://www.foxnews.com/official-polls/fox-news-poll-voters-favor-gun-limits-arming-citizens-reduce-gun-violence" target="_blank">Fox News/Beacon(2023)</a>、<a href="https://giffords.org/analysis/americans-want-stronger-gun-laws/" target="_blank">Giffords/NORC(2025)</a>。氣候:<a href="https://climatecommunication.yale.edu/publications/climate-change-in-the-american-mind-politics-policy-fall-2023/" target="_blank">Yale/GMU(2023)</a>、<a href="https://www.pewresearch.org/science/2024/12/09/how-americans-view-climate-change-and-policies-to-address-the-issue/" target="_blank">Pew(2024)</a>。移民:<a href="https://news.gallup.com/poll/647123/sharply-americans-curb-immigration.aspx" target="_blank">Gallup(2024)</a>、<a href="https://apnorc.org/projects/about-half-of-the-public-believe-the-number-of-legal-immigrants-to-the-u-s-should-remain-the-same/" target="_blank">AP-NORC(2024)</a>。醫療:<a href="https://www.kff.org/affordable-care-act/kff-health-tracking-poll-february-2024-voters-on-two-key-health-care-issues-affordability-and-aca/" target="_blank">KFF(2024)</a>、<a href="https://news.gallup.com/poll/468401/majority-say-gov-ensure-healthcare.aspx" target="_blank">Gallup(2023)</a>。</div>
-    <div class="fn" id="fn-10"><span class="fn-num">10</span> Moore-Berg、Ankori-Karlinsky、Hameiri 與 Bruneau,<a href="https://doi.org/10.1073/pnas.2001263117" target="_blank">「Exaggerated meta-perceptions predict intergroup hostility between American political partisans」</a>,<em>PNAS</em>, 117(26), 2020。約 80% 的兩黨支持者高估對手敵意 50-300%。亦可參見:<a href="https://beyondconflictint.org/americas-divided-mind/" target="_blank">「America's Divided Mind」</a>,Beyond Conflict, 2020。</div>
-    <div class="fn" id="fn-11"><span class="fn-num">11</span> Sparkman、Geiger 與 Weber,<a href="https://doi.org/10.1038/s41467-022-32412-y" target="_blank">「Americans experience a false social reality by underestimating popular climate policy support by nearly half」</a>,<em>Nature Communications</em>, 13, 4779, 2022。n=6,119。80% 美國人支持就地建設再生能源;感知支持率:43%。</div>
-    <div class="fn" id="fn-12"><span class="fn-num">12</span> Yudkin、Hawkins 與 Dixon,<a href="https://perceptiongap.us/" target="_blank">「The Perception Gap」</a>,More in Common, 2019。n=2,100,透過 YouGov。對對手極端觀點的平均高估:約 55% 估計值 vs. 約 30% 實際值。</div>
-    <div class="fn" id="fn-13"><span class="fn-num">13</span> More in Common,<a href="https://moreincommonus.com/publication/americans-environmental-blind-spot/" target="_blank">「Americans' Environmental Blind Spot」</a>,2022。73% 的共和黨人支持美國於潔淨能源領域居領導地位;共和黨人估計自家黨只有 33% 同意。</div>
-    <div class="fn" id="fn-14"><span class="fn-num">14</span> Baribi-Bartov、Munger 與 Pan,<a href="https://doi.org/10.1126/science.adl4435" target="_blank">「Supersharers of fake news on Twitter」</a>,<em>Science</em>, 384(6700), 2024。0.3% 的使用者於 2020 年美國大選期間分享了 80% 的爭議性新聞。</div>
-    <div class="fn" id="fn-15"><span class="fn-num">15</span> 皮尤研究中心(Pew Research Center),<a href="https://www.pewresearch.org/internet/2024/02/22/how-u-s-adults-use-tiktok/" target="_blank">「How U.S. Adults Use TikTok」</a>,2024。25% 的使用者產出 98% 的公開影片。</div>
-    <div class="fn" id="fn-16"><span class="fn-num">16</span> Bail,<a href="https://press.princeton.edu/books/hardcover/9780691203423/breaking-the-social-media-prism" target="_blank"><em>Breaking the Social Media Prism</em></a>,Princeton University Press, 2021;皮尤研究中心,2021。6% 的美國 Twitter 使用者產出約 73% 的政治推文。</div>
-    <div class="fn" id="fn-17"><span class="fn-num">17</span> Oz、Shahin 與 Greeves,<a href="https://doi.org/10.1016/j.techsoc.2023.102431" target="_blank">「Platform affordances and spiral of silence: How perceived differences between Facebook and Twitter influence opinion expression online」</a>,<em>Technology in Society</em>, 76, 2024。對社會孤立的恐懼,壓抑了人們在「自己被認為不受歡迎的平台上」表達意見——確認沉默螺旋動態在社群媒體上運作,並由平台特定的可供性(網絡關聯、匿名性、社會臨場感)所調節。</div>
+    <div class="fn" id="fn-9"><span class="fn-num">9</span> 槍枝民調：<a href="https://www.foxnews.com/official-polls/fox-news-poll-voters-favor-gun-limits-arming-citizens-reduce-gun-violence" target="_blank">Fox News/Beacon(2023)</a>、<a href="https://giffords.org/analysis/americans-want-stronger-gun-laws/" target="_blank">Giffords/NORC(2025)</a>。氣候：<a href="https://climatecommunication.yale.edu/publications/climate-change-in-the-american-mind-politics-policy-fall-2023/" target="_blank">Yale/GMU(2023)</a>、<a href="https://www.pewresearch.org/science/2024/12/09/how-americans-view-climate-change-and-policies-to-address-the-issue/" target="_blank">Pew(2024)</a>。移民：<a href="https://news.gallup.com/poll/647123/sharply-americans-curb-immigration.aspx" target="_blank">Gallup(2024)</a>、<a href="https://apnorc.org/projects/about-half-of-the-public-believe-the-number-of-legal-immigrants-to-the-u-s-should-remain-the-same/" target="_blank">AP-NORC(2024)</a>。醫療：<a href="https://www.kff.org/affordable-care-act/kff-health-tracking-poll-february-2024-voters-on-two-key-health-care-issues-affordability-and-aca/" target="_blank">KFF(2024)</a>、<a href="https://news.gallup.com/poll/468401/majority-say-gov-ensure-healthcare.aspx" target="_blank">Gallup(2023)</a>。</div>
+    <div class="fn" id="fn-10"><span class="fn-num">10</span> Moore-Berg、Ankori-Karlinsky、Hameiri 與 Bruneau，<a href="https://doi.org/10.1073/pnas.2001263117" target="_blank">「Exaggerated meta-perceptions predict intergroup hostility between American political partisans」</a>，<em>PNAS</em>, 117(26), 2020。約 80% 的兩黨支持者高估對手敵意 50-300%。亦可參見：<a href="https://beyondconflictint.org/americas-divided-mind/" target="_blank">「America's Divided Mind」</a>，Beyond Conflict, 2020。</div>
+    <div class="fn" id="fn-11"><span class="fn-num">11</span> Sparkman、Geiger 與 Weber，<a href="https://doi.org/10.1038/s41467-022-32412-y" target="_blank">「Americans experience a false social reality by underestimating popular climate policy support by nearly half」</a>，<em>Nature Communications</em>, 13, 4779, 2022。n=6,119。80% 美國人支持就地建設再生能源；感知支持率：43%。</div>
+    <div class="fn" id="fn-12"><span class="fn-num">12</span> Yudkin、Hawkins 與 Dixon，<a href="https://perceptiongap.us/" target="_blank">「The Perception Gap」</a>，More in Common, 2019。n=2,100，透過 YouGov。對對手極端觀點的平均高估：約 55% 估計值 vs. 約 30% 實際值。</div>
+    <div class="fn" id="fn-13"><span class="fn-num">13</span> More in Common，<a href="https://moreincommonus.com/publication/americans-environmental-blind-spot/" target="_blank">「Americans' Environmental Blind Spot」</a>，2022。73% 的共和黨人支持美國於潔淨能源領域居領導地位；共和黨人估計自家黨只有 33% 同意。</div>
+    <div class="fn" id="fn-14"><span class="fn-num">14</span> Baribi-Bartov、Munger 與 Pan，<a href="https://doi.org/10.1126/science.adl4435" target="_blank">「Supersharers of fake news on Twitter」</a>，<em>Science</em>, 384(6700), 2024。0.3% 的使用者於 2020 年美國大選期間分享了 80% 的爭議性新聞。</div>
+    <div class="fn" id="fn-15"><span class="fn-num">15</span> 皮尤研究中心(Pew Research Center)，<a href="https://www.pewresearch.org/internet/2024/02/22/how-u-s-adults-use-tiktok/" target="_blank">「How U.S. Adults Use TikTok」</a>，2024。25% 的使用者產出 98% 的公開影片。</div>
+    <div class="fn" id="fn-16"><span class="fn-num">16</span> Bail,<a href="https://press.princeton.edu/books/hardcover/9780691203423/breaking-the-social-media-prism" target="_blank"><em>Breaking the Social Media Prism</em></a>,Princeton University Press, 2021；皮尤研究中心，2021。6% 的美國 Twitter 使用者產出約 73% 的政治推文。</div>
+    <div class="fn" id="fn-17"><span class="fn-num">17</span> Oz、Shahin 與 Greeves，<a href="https://doi.org/10.1016/j.techsoc.2023.102431" target="_blank">「Platform affordances and spiral of silence: How perceived differences between Facebook and Twitter influence opinion expression online」</a>，<em>Technology in Society</em>, 76, 2024。對社會孤立的恐懼，壓抑了人們在「自己被認為不受歡迎的平台上」表達意見——確認沉默螺旋動態在社群媒體上運作，並由平台特定的可供性（網絡關聯、匿名性、社會臨場感）所調節。</div>
   </div>
 
   <!-- FAQ -->
@@ -1947,7 +1964,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
   <div class="section" id="s9-tech">
     <div class="tech-spec" id="tech-spec">
       <h3 style="font-size:22px; margin-bottom:8px;">技術規格</h3>
-      <p>從資料來源到平台整合,社群核實在實務上如何運作。</p>
+      <p>從資料來源到平台整合，社群核實在實務上如何運作。</p>
 
       <button class="tech-spec-toggle" id="ts-tog-data" onclick="toggleTechSpec('data')">
         <span class="ts-icon">&#128451;</span> 資料架構
@@ -2004,7 +2021,7 @@ function feedDotBg() { return isDarkTheme() ? 'rgba(255,255,255,0.1)' : 'rgba(0,
       <a href="https://github.com/rosestt/communitycheck" target="_blank" style="color:var(--text-secondary);border-bottom:1px solid var(--text-tertiary);text-decoration:none">在 GitHub 查看社群核實規格 &rarr;</a>
     </p>
     <p style="font-family:var(--mono);font-size:11px;color:var(--text-tertiary);margin:0 0 8px">採 <a href="https://github.com/rosestt/communitycheck/blob/main/LICENSE" target="_blank" style="color:var(--text-tertiary);border-bottom:1px solid var(--text-tertiary)">CC BY 4.0</a> 授權開源</p>
-    <p style="font-family:var(--mono);font-size:11px;color:var(--text-tertiary);margin:0">原作:<a href="http://tobias.cc" target="_blank" style="color:var(--text-tertiary);border-bottom:1px solid var(--text-tertiary)">Tobias Rose-Stockwell</a>;繁體中文在地化:唐鳳</p>
+    <p style="font-family:var(--mono);font-size:11px;color:var(--text-tertiary);margin:0">原作：<a href="http://tobias.cc" target="_blank" style="color:var(--text-tertiary);border-bottom:1px solid var(--text-tertiary)">Tobias Rose-Stockwell</a>；繁體中文在地化：唐鳳</p>
   </footer>
 </div>
 <script>
@@ -2017,14 +2034,14 @@ const TOPICS = {
     label: '槍枝政策',
     feedTitle: '您的動態消息 · 槍枝政策',
     posts: [
-      { user: '@2A_or_die', text: '他們想沒收我們「所有」的槍。普及化背景查核只是邁向全面沒收的第一步。這就是我誓死捍衛的底線。投下這一票,你就是在投給「暴政」。🔥', likes: '12.4K', comments: '6,203', shares: '3,892' },
+      { user: '@2A_or_die', text: '他們想沒收我們「所有」的槍。普及化背景查核只是邁向全面沒收的第一步。這就是我誓死捍衛的底線。投下這一票，你就是在投給「暴政」。🔥', likes: '12.4K', comments: '6,203', shares: '3,892' },
       { user: '@ban_everything_now', text: '每一個擁槍者都是每一場校園槍擊案的共犯。我就是這樣說。第二修正案是一份由奴隸主所撰寫的死刑判決。全部。禁掉。沒有例外。🧵👇', likes: '8,102', comments: '5,847', shares: '4,104' },
-      { user: '@liberty_patriot_1776', text: '背景查核就是「登記」。登記就是「沒收」。問問德國人。問問蘇聯人。醒醒吧,綿羊們。🇺🇸🔫', likes: '5,201', comments: '3,104', shares: '1,987' },
+      { user: '@liberty_patriot_1776', text: '背景查核就是「登記」。登記就是「沒收」。問問德國人。問問蘇聯人。醒醒吧，綿羊們。🇺🇸🔫', likes: '5,201', comments: '3,104', shares: '1,987' },
     ],
-    ccQuestion: '所有槍枝購買都應要求進行背景查核嗎?',
+    ccQuestion: '所有槍枝購買都應要求進行背景查核嗎？',
     ccBars: [
-      { label: '應該,所有交易', pct: 68, color: '#16a34a' },
-      { label: '應該,但有些例外', pct: 19, color: '#16a34a' },
+      { label: '應該，所有交易', pct: 68, color: '#16a34a' },
+      { label: '應該，但有些例外', pct: 19, color: '#16a34a' },
       { label: '僅限於有執照的經銷商', pct: 8, color: '#16a34a' },
       { label: '不需要', pct: 5, color: '#16a34a' },
     ],
@@ -2038,7 +2055,7 @@ const TOPICS = {
       { label: '支持紅旗法', pct: 81, color: '#16a34a', sub: '全體美國人' },
       { label: '支持把購槍年齡提高到 21 歲', pct: 81, color: '#16a34a', sub: '全體美國人' },
     ],
-    natInsight: '在普及化背景查核這件事上,美國人的共識比「有吃早餐的人比例」還要大。連 77% 的擁槍者都支持。這從來不是 50/50 的戰爭——而是一個 87% 的共識。',
+    natInsight: '在普及化背景查核這件事上，美國人的共識比「有吃早餐的人比例」還要大。連 77% 的擁槍者都支持。這從來不是 50/50 的戰爭——而是一個 87% 的共識。',
     natSource: 'Fox News/Beacon 2023 · Giffords/NORC 2025',
     natBars: [
       { label: '支持普及化背景查核', pct: 87, color: '#16a34a', source: 'Fox News / Beacon Research 2023', url: 'https://www.foxnews.com/official-polls/fox-news-poll-january-2023' },
@@ -2061,14 +2078,14 @@ const TOPICS = {
     label: '氣候',
     feedTitle: '您的動態消息 · 氣候政策',
     posts: [
-      { user: '@climate_doomer', text: '人類已經「玩完」了。字面意思上的玩完。我們有 30 年可以修補,但我們選擇了股東。你的孩子將繼承一顆瀕死的星球。再多的回收都救不了這個。我們結束了。💀🌍', likes: '14.7K', comments: '8,301', shares: '5,102' },
+      { user: '@climate_doomer', text: '人類已經「玩完」了。字面意思上的玩完。我們有 30 年可以修補，但我們選擇了股東。你的孩子將繼承一顆瀕死的星球。再多的回收都救不了這個。我們結束了。💀🌍', likes: '14.7K', comments: '8,301', shares: '5,102' },
       { user: '@drill_baby_drill_99', text: '氣候變遷是人類史上最大的「騙局」。順著錢看。每一個推這個議題的「科學家」都被付了錢來嚇你。溫度變化本來就是「自然的」。一直都是。🤡', likes: '9,841', comments: '6,712', shares: '3,445' },
-      { user: '@eco_warrior_xx', text: '任何開 SUV 的人都是未來世代的「殺人犯」。我沒在誇張。你正在拿自己的舒適,換孩子們的「生命」。沒有所謂的倫理消費。立刻廢除資本主義。✊🌱', likes: '6,302', comments: '4,891', shares: '2,108' },
+      { user: '@eco_warrior_xx', text: '任何開 SUV 的人都是未來世代的「殺人犯」。我沒在誇張。你正在拿自己的舒適，換孩子們的「生命」。沒有所謂的倫理消費。立刻廢除資本主義。✊🌱', likes: '6,302', comments: '4,891', shares: '2,108' },
     ],
-    ccQuestion: '美國應對氣候變遷採取重大行動嗎?',
+    ccQuestion: '美國應對氣候變遷採取重大行動嗎？',
     ccBars: [
-      { label: '應該,列為首要', pct: 54, color: '#16a34a' },
-      { label: '應該,需要一些行動', pct: 23, color: '#16a34a' },
+      { label: '應該，列為首要', pct: 54, color: '#16a34a' },
+      { label: '應該，需要一些行動', pct: 23, color: '#16a34a' },
       { label: '僅在不傷害經濟的前提下', pct: 14, color: '#16a34a' },
       { label: '不需要', pct: 9, color: '#16a34a' },
     ],
@@ -2082,7 +2099,7 @@ const TOPICS = {
       { label: '支持電動車/太陽能稅務抵減', pct: 69, color: '#16a34a', sub: '全體美國人' },
       { label: '希望加強對發電廠的監管', pct: 65, color: '#16a34a', sub: '全體美國人' },
     ],
-    natInsight: '近 3/4 的美國人相信氣候變遷正在發生,並支持擴大再生能源。網路上的辯論看起來像是「騙局 vs. 末日」。現實則是對「採取行動」的廣泛共識。',
+    natInsight: '近 3/4 的美國人相信氣候變遷正在發生，並支持擴大再生能源。網路上的辯論看起來像是「騙局 vs. 末日」。現實則是對「採取行動」的廣泛共識。',
     natSource: 'Yale/GMU Climate Communication 2023 · Pew Research 2024',
     natBars: [
       { label: '認為氣候變遷正在發生', pct: 72, color: '#16a34a', source: 'Yale / George Mason Climate Communication 2023', url: 'https://climatecommunication.yale.edu/publications/politics-global-warming-december-2023/' },
@@ -2105,11 +2122,11 @@ const TOPICS = {
     label: '移民',
     feedTitle: '您的動態消息 · 移民政策',
     posts: [
-      { user: '@close_the_border_NOW', text: '每一次「非法」越境都是「犯罪」。每一個庇護城市都是「共犯」。這些人不是「移民」——他們是「入侵者」。「大取代」不是理論,是「政策」。🚨🧱', likes: '11.2K', comments: '7,892', shares: '4,301' },
-      { user: '@no_borders_no_nations', text: '國界是殖民時代的發明,設計來囤積偷來的財富。沒有任何人類是「非法」的。廢除 ICE。廢除 CBP。廢除「公民身分」這個概念。沒有但書。🌍✊', likes: '7,643', comments: '5,201', shares: '3,187' },
-      { user: '@patriot_alert_2024', text: '他們派來的不是他們的精英。其實,他們派的是罪犯、毒販、幫派分子。而你的稅金正在資助他們住的飯店。這就是「入侵」,而你的政府是「共犯」。🇺🇸', likes: '8,901', comments: '6,334', shares: '3,765' },
+      { user: '@close_the_border_NOW', text: '每一次「非法」越境都是「犯罪」。每一個庇護城市都是「共犯」。這些人不是「移民」——他們是「入侵者」。「大取代」不是理論，是「政策」。🚨🧱', likes: '11.2K', comments: '7,892', shares: '4,301' },
+      { user: '@no_borders_no_nations', text: '國界是殖民時代的發明，設計來囤積偷來的財富。沒有任何人類是「非法」的。廢除 ICE。廢除 CBP。廢除「公民身分」這個概念。沒有但書。🌍✊', likes: '7,643', comments: '5,201', shares: '3,187' },
+      { user: '@patriot_alert_2024', text: '他們派來的不是他們的精英。其實，他們派的是罪犯、毒販、幫派分子。而你的稅金正在資助他們住的飯店。這就是「入侵」，而你的政府是「共犯」。🇺🇸', likes: '8,901', comments: '6,334', shares: '3,765' },
     ],
-    ccQuestion: '美國對移民議題應採取什麼樣的做法?',
+    ccQuestion: '美國對移民議題應採取什麼樣的做法？',
     ccBars: [
       { label: '加強邊境 + 為現居者提供合法管道', pct: 62, color: '#16a34a' },
       { label: '主要聚焦於邊境安全', pct: 18, color: '#16a34a' },
@@ -2119,7 +2136,7 @@ const TOPICS = {
     ],
     ccCount: '208,341',
     mockupUser: '@close_the_border_NOW · 1 小時前',
-    mockupText: '每一次「非法」越境都是「犯罪」。這些人不是「移民」——他們是「入侵者」。「大取代」不是理論,是「政策」。🚨',
+    mockupText: '每一次「非法」越境都是「犯罪」。這些人不是「移民」——他們是「入侵者」。「大取代」不是理論，是「政策」。🚨',
     natTitle: '移民政策',
     natStats: [
       { label: '同時支持邊境安全「與」合法管道', pct: 64, color: '#16a34a', sub: '全體美國人' },
@@ -2127,7 +2144,7 @@ const TOPICS = {
       { label: '支持讓 DACA 受益者留下', pct: 74, color: '#16a34a', sub: '全體美國人' },
       { label: '希望合法移民維持現狀或增加', pct: 61, color: '#16a34a', sub: '全體美國人' },
     ],
-    natInsight: '近三分之二的美國人,同時希望「更強的邊境管理」「也」希望「為已在此的人提供合法管道」。「入侵 vs. 開放國界」的框架,約只代表全國 8% 的人。其他人要的是細緻處理。',
+    natInsight: '近三分之二的美國人，同時希望「更強的邊境管理」「也」希望「為已在此的人提供合法管道」。「入侵 vs. 開放國界」的框架，約只代表全國 8% 的人。其他人要的是細緻處理。',
     natSource: 'Gallup 2024 · AP-NORC 2024 · CBS/YouGov 2024',
     natBars: [
       { label: '支持邊境安全並提供合法管道', pct: 64, color: '#16a34a', source: 'Gallup 2024', url: 'https://news.gallup.com/poll/1660/immigration.aspx' },
@@ -2270,7 +2287,7 @@ function setRoomStep(step) {
     landing.classList.remove('visible');
     landing.innerHTML = '';
     stopParticles();
-    label.innerHTML = '<strong>真實的房間。</strong>每 100 位使用者中,只有 3 位曾發布過嚴重的有毒內容。';
+    label.innerHTML = '<strong>真實的房間。</strong>每 100 位使用者中，只有 3 位曾發布過嚴重的有毒內容。';
     label.className = 'room-label';
     nextBtn.textContent = '看看他們的內容 →';
     nextBtn.disabled = false;
@@ -2336,7 +2353,7 @@ function setRoomStep(step) {
     setTimeout(() => h2.classList.add('visible'), 500);
     setTimeout(() => spawnContentBlocks(), 700);
 
-    label.innerHTML = '<strong>3% 的 Reddit 帳號,產出 33% 的留言。</strong>他們的發文頻率約為其他使用者的 16 倍(Kumar 等人,WWW \'23)。';
+    label.innerHTML = '<strong>3% 的 Reddit 帳號，產出 33% 的留言。</strong>他們的發文頻率約為其他使用者的 16 倍(Kumar 等人，WWW \'23)。';
     label.className = 'room-label step-red';
     nextBtn.textContent = '看看它在動態消息上如何出現 →';
     nextBtn.disabled = false;
@@ -2366,7 +2383,7 @@ function setRoomStep(step) {
     }, 750);
 
     setTimeout(() => { h2.classList.add('visible'); h3.classList.add('visible'); }, 200);
-    label.innerHTML = '<strong>您的動態消息。</strong>以互動為基礎的排名,放大了挑釁性的、高反應的內容。安靜的聲音消失了。';
+    label.innerHTML = '<strong>您的動態消息。</strong>以互動為基礎的排名，放大了挑釁性的、高反應的內容。安靜的聲音消失了。';
     label.className = 'room-label step-red';
     nextBtn.disabled = true;
   }
@@ -2571,7 +2588,7 @@ function setKnowledge(mode) {
     panel.className = 'knowledge-panel panel-common';
     icon.innerHTML = '<svg viewBox="0 0 32 32" width="26" height="26" fill="none"><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="16" y1="16" x2="16" y2="4"/><line x1="16" y1="16" x2="26.4" y2="10"/><line x1="16" y1="16" x2="26.4" y2="22"/><line x1="16" y1="16" x2="16" y2="28"/><line x1="16" y1="16" x2="5.6" y2="22"/><line x1="16" y1="16" x2="5.6" y2="10"/></g><circle cx="16" cy="16" r="4.5" fill="currentColor"/><polyline points="12.5,16 15,18.5 20,13.5" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><circle cx="16" cy="4" r="2"/><circle cx="26.4" cy="10" r="2"/><circle cx="26.4" cy="22" r="2"/><circle cx="16" cy="28" r="2"/><circle cx="5.6" cy="22" r="2"/><circle cx="5.6" cy="10" r="2"/></g></svg>';
     title.textContent = '共同知識';
-    text.textContent = '數字對所有人可見——而且每個人都能看到其他人也看到了。真實的認知,變成了可行動的資訊。人們不再保持沉默。他們以一個知情的群體行動。';
+    text.textContent = '數字對所有人可見——而且每個人都能看到其他人也看到了。真實的認知，變成了可行動的資訊。人們不再保持沉默。他們以一個知情的群體行動。';
 
     let svg = `<svg viewBox="0 0 300 190" class="knowledge-graph" id="kg-common-svg">`;
     // --- Sequential per-person build: each person connects, overlapping with the next ---
@@ -2861,7 +2878,7 @@ function pgSetStep(step) {
 
   if (step === 0) {
     title.classList.add('overlay');
-    title.innerHTML = '在「完全開放」到「完全封閉」國界的光譜上,民主黨人認為共和黨人站在哪裡?';
+    title.innerHTML = '在「完全開放」到「完全封閉」國界的光譜上，民主黨人認為共和黨人站在哪裡？';
     pgSetCurve('red', PG_P.redMu, PG_P.redS, 0, false);
     pgSetCurve('blue', PG_P.blueMu, PG_P.blueS, 0, false);
     document.getElementById('pg-overlap').style.opacity = '0';
@@ -2908,7 +2925,7 @@ function pgSetStep(step) {
       label.style.opacity = '1';
     }, 1600);
     // Show button after everything settles
-    btn.textContent = '下一步:共和黨人怎麼想 \u2192';
+    btn.textContent = '下一步：共和黨人怎麼想 \u2192';
     btn.style.display = '';
     btn.style.transition = 'none';
     btn.style.opacity = '0';
@@ -2938,7 +2955,7 @@ function pgSetStep(step) {
       label.style.opacity = '1';
     }, 900);
     // Show button after everything settles
-    btn.textContent = '揭曉:他們實際上相信什麼 \u2192';
+    btn.textContent = '揭曉：他們實際上相信什麼 \u2192';
     btn.style.display = '';
     btn.style.transition = 'none';
     btn.style.opacity = '0';
@@ -3134,8 +3151,8 @@ function lockMQ(n) {
   const _G = 'font-family:var(--mono);font-size:24px;color:var(--accent);line-height:1';
   const _P = 'font-family:var(--serif);font-size:17px;line-height:2.6;color:var(--text-secondary)';
   const msg = overRatio > 1
-    ? `<div style="${_P}">您的猜測:<strong style="${_B}">${guess}%</strong>。實際上,<strong style="${_G}">${data.actual}%</strong>${actualDesc}。這是 <strong style="${_B}">${overRatio}\u00D7</strong> 的高估。</div>`
-    : `<div style="${_P}">您的猜測:<strong style="${_B}">${guess}%</strong>。實際上,<strong style="${_G}">${data.actual}%</strong>${actualDesc}。您校準得異常準確。</div>`;
+    ? `<div style="${_P}">您的猜測：<strong style="${_B}">${guess}%</strong>。實際上，<strong style="${_G}">${data.actual}%</strong>${actualDesc}。這是 <strong style="${_B}">${overRatio}\u00D7</strong> 的高估。</div>`
+    : `<div style="${_P}">您的猜測：<strong style="${_B}">${guess}%</strong>。實際上，<strong style="${_G}">${data.actual}%</strong>${actualDesc}。您校準得異常準確。</div>`；
 
   setTimeout(() => {
     reveal.innerHTML = `<div class="reveal-box" style="margin-top:12px"><div class="reveal-comparison" style="margin:0;border:none;padding:0">${msg}</div></div>`;
@@ -3145,7 +3162,7 @@ function lockMQ(n) {
   if (mqLocked === 2) {
     setTimeout(() => {
       document.getElementById('mq-reveal').innerHTML = `
-        <p style="font-family:var(--serif);font-size:17px;line-height:2.6;color:var(--text-secondary);margin-top:16px">一般美國人對這類數字的高估,平均達 <strong style="font-family:var(--mono);font-size:24px;color:var(--text);line-height:1">342%</strong>。社群媒體把「看得見的少數」變成您對「整個群體」的心智模型。</p>
+        <p style="font-family:var(--serif);font-size:17px;line-height:2.6;color:var(--text-secondary);margin-top:16px">一般美國人對這類數字的高估，平均達 <strong style="font-family:var(--mono);font-size:24px;color:var(--text);line-height:1">342%</strong>。社群媒體把「看得見的少數」變成您對「整個群體」的心智模型。</p>
       `;
     }, 1200);
   }
@@ -3337,34 +3354,34 @@ function renderMoneyCheck() {
         <span class="cc-results-label">${headerLabel}</span>
         <span class="cc-results-count">${countText}</span>
       </div>
-      <div class="cc-results-q">政治選舉花費應該設限嗎?</div>
+      <div class="cc-results-q">政治選舉花費應該設限嗎？</div>
       ${detailHTML}
       <div class="cc-sample-tabs">
         <button class="cc-sample-tab ${isPlatform ? 'active' : ''}" onclick="setCCSample('platform')">本平台<span class="cc-tab-sub">N=208,341 \u00B7 即時</span></button>
         <button class="cc-sample-tab ${!isPlatform ? 'active' : ''}" onclick="setCCSample('national')">全國<span class="cc-tab-sub">同儕審查民調</span></button>
       </div>
       <button class="cc-methodology-toggle" onclick="toggleMethodology(this)">
-        <span class="cc-meth-arrow">▶</span> 這是怎麼測量的?
+        <span class="cc-meth-arrow">▶</span> 這是怎麼測量的？
       </button>
       <div class="cc-methodology-panel hidden" id="cc-methodology-panel">
         ${isPlatform ? `
           <p><strong>平台樣本方法論</strong></p>
           <ul>
-            <li><strong>樣本:</strong>透過分層隨機抽樣抽取 208,341 位使用者——非互動加權</li>
-            <li><strong>問題:</strong>措辭中立,跨意識形態分歧採橋接式核可</li>
-            <li><strong>匿名性:</strong>密碼學匿名化——無法連結到個人檔案或行為</li>
-            <li><strong>可見性:</strong>所有使用者看到相同結果——非個人化</li>
+            <li><strong>樣本：</strong>透過分層隨機抽樣抽取 208,341 位使用者——非互動加權</li>
+            <li><strong>問題：</strong>措辭中立，跨意識形態分歧採橋接式核可</li>
+            <li><strong>匿名性：</strong>密碼學匿名化——無法連結到個人檔案或行為</li>
+            <li><strong>可見性：</strong>所有使用者看到相同結果——非個人化</li>
           </ul>
           <div class="cc-meth-source">開源抽樣演算法 · 可由獨立研究者稽核</div>
         ` : `
           <p><strong>全國民調來源</strong></p>
           <ul>
-            <li><strong>American Promise / Ipsos(2026 年 1 月)</strong>——n=1,036,基於機率的 KnowledgePanel,誤差範圍 \u00B13.2%</li>
-            <li><strong>Issue One / YouGov(2025 年 10 月)</strong>——全國代表性的線上樣本,含黨派分布</li>
-            <li><strong>皮尤研究中心(2023 年 7 月)</strong>——n=8,480,American Trends Panel</li>
+            <li><strong>American Promise / Ipsos(2026 年 1 月）</strong>——n=1,036，基於機率的 KnowledgePanel，誤差範圍 \u00B13.2%</li>
+            <li><strong>Issue One / YouGov(2025 年 10 月）</strong>——全國代表性的線上樣本，含黨派分布</li>
+            <li><strong>皮尤研究中心(2023 年 7 月）</strong>——n=8,480,American Trends Panel</li>
             <li><strong>American Promise / UMD(2025)</strong>——採用 Program for Public Consultation 方法論</li>
           </ul>
-          <p style="margin-top:8px">各項調查皆採獨立的機率為基礎或配額相符抽樣。結果在各家提供者之間交叉驗證——一項發現必須出現在多份獨立民調中,才會被納入。</p>
+          <p style="margin-top:8px">各項調查皆採獨立的機率為基礎或配額相符抽樣。結果在各家提供者之間交叉驗證——一項發現必須出現在多份獨立民調中，才會被納入。</p>
           <div class="cc-meth-source">各提供者皆有完整方法論可查閱 \u00B7 所有調查皆同儕審查或採用 AAPOR 標準報告</div>
         `}
       </div>
@@ -3467,10 +3484,10 @@ function renderNatPanel(key) {
 // ═══════════════════════════════
 let sfvCurrentStep = 0;
 const sfvDescs = [
-  '一則政治影片病毒式傳播——28.4 萬個讚、1.8 萬則留言。看起來像是主流觀點。但真的是嗎?',
-  '影片播放一次後,一個安靜的橫幅邀請觀眾看看社群怎麼想。沒有評判——只是個問題。',
-  '點擊後揭曉具全國代表性的民調資料。不是最大聲的人怎麼說——而是美國人實際上怎麼想,有來源、透明可查。',
-  '另一種做法:把社群核實做成一則釘選留言。摩擦更低、無需介面變更。觸及約 15–20% 會打開留言區的觀眾,且不需任何平台整合。',
+  '一則政治影片病毒式傳播——28.4 萬個讚、1.8 萬則留言。看起來像是主流觀點。但真的是嗎？',
+  '影片播放一次後，一個安靜的橫幅邀請觀眾看看社群怎麼想。沒有評判——只是個問題。',
+  '點擊後揭曉具全國代表性的民調資料。不是最大聲的人怎麼說——而是美國人實際上怎麼想，有來源、透明可查。',
+  '另一種做法：把社群核實做成一則釘選留言。摩擦更低、無需介面變更。觸及約 15–20% 會打開留言區的觀眾，且不需任何平台整合。',
 ];
 
 function sfvSetStep(step) {
@@ -3724,11 +3741,11 @@ function submitGuess() {
   const G = 'font-family:var(--mono);font-size:24px;color:var(--accent);line-height:1';
   const P = 'font-family:var(--serif);font-size:17px;line-height:2.6;color:var(--text-secondary)';
   if (guess > 10) {
-    comparison = `<div style="${P}">您的猜測:<strong style="${B}">${guess}%</strong>。您高估了 <strong style="${G}">${Math.round(diff / 3.1)} 倍</strong>。一般美國人猜的是 43%——高估 13 倍。</div>`;
+    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。您高估了 <strong style="${G}">${Math.round(diff / 3.1)} 倍</strong>。一般美國人猜的是 43%——高估 13 倍。</div>`；
   } else if (guess > 5) {
-    comparison = `<div style="${P}">您的猜測:<strong style="${B}">${guess}%</strong>。比大多數人接近——一般人猜的是 43%。但仍高出 <strong style="${G}">${(diff).toFixed(0)}</strong> 個百分點。</div>`;
+    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。比大多數人接近——一般人猜的是 43%。但仍高出 <strong style="${G}">${(diff).toFixed(0)}</strong> 個百分點。</div>`；
   } else {
-    comparison = `<div style="${P}">您的猜測:<strong style="${B}">${guess}%</strong>。您校準得異常準確。一般人猜的是 43%——高估 <strong style="${G}">13 倍</strong>。</div>`;
+    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。您校準得異常準確。一般人猜的是 43%——高估 <strong style="${G}">13 倍</strong>。</div>`；
   }
   setTimeout(() => {
     document.getElementById('guess-reveal').innerHTML = `
@@ -3748,7 +3765,7 @@ function submitGuess() {
 // ═══════════════════════════════
 (function() {
   const Q1_LABELS = {
-    yes_definitely: '是的,絕對會',
+    yes_definitely: '是的，絕對會',
     probably: '很可能會',
     not_sure: '不確定',
     probably_not: '很可能不會',
@@ -3756,7 +3773,7 @@ function submitGuess() {
   };
   const Q2_LABELS = {
     yes: '應該',
-    yes_conditions: '應該,但須附條件',
+    yes_conditions: '應該，但須附條件',
     not_sure: '不確定',
     no: '不應該'
   };
@@ -3841,7 +3858,7 @@ function submitGuess() {
       // On error, show a graceful fallback
       document.getElementById('lcc-loading').classList.add('hidden');
       document.getElementById('lcc-results').classList.remove('hidden');
-      document.getElementById('lcc-results').innerHTML = '<div class="live-cc-results"><p style="color:var(--text-secondary);font-size:14px;">感謝您的回覆!後端連上後會顯示結果。</p></div>';
+      document.getElementById('lcc-results').innerHTML = '<div class="live-cc-results"><p style="color:var(--text-secondary);font-size:14px;">感謝您的回覆！後端連上後會顯示結果。</p></div>';
     }
   }
 
@@ -3870,7 +3887,7 @@ function submitGuess() {
     const q1HTML = renderQuestion(
       data.q1 || {},
       Q1_LABELS,
-      '如果貼文下方出現具代表性的民調資料,會改變您詮釋它們的方式嗎?',
+      '如果貼文下方出現具代表性的民調資料，會改變您詮釋它們的方式嗎？',
       0
     );
 
@@ -3878,7 +3895,7 @@ function submitGuess() {
     const q2HTML = renderQuestion(
       data.q2 || {},
       Q2_LABELS,
-      '平台應該在爭議性貼文旁,顯示具代表性的民調資料嗎?',
+      '平台應該在爭議性貼文旁，顯示具代表性的民調資料嗎？',
       1
     );
 
@@ -3955,11 +3972,11 @@ function submitGuess() {
 // SHARE BUTTONS
 // ═══════════════════════════════
 (function() {
-  const pageURL = 'https://thenoisyroom.com';
+  const pageURL = 'https://communitycheck.audreyt.org';
   const pageTitle = '社群核實 Community Check';
 
   // X / Twitter
-  const xText = "只有 3% 的社群媒體使用者會發布有毒內容。但演算法讓它看起來像「每個人都在發」。\n\n這份互動式說明,告訴你它如何運作——以及修復的方法是什麼。";
+  const xText = "只有 3% 的社群媒體使用者會發布有毒內容。但演算法讓它看起來像「每個人都在發」。\n\n這份互動式說明，告訴你它如何運作——以及修復的方法是什麼。";
   document.getElementById('share-x').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(xText) + '&url=' + encodeURIComponent(pageURL);
 
   // Bluesky
@@ -3975,8 +3992,8 @@ function submitGuess() {
   document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageURL);
 
   // Email
-  const emailSubject = '值得花十分鐘:社群媒體沒告訴你的事';
-  const emailBody = "嘿,\n\n我剛讀完一篇互動式的說明,談的是社群媒體如何扭曲我們對彼此的看法。核心發現是:只有約 3% 的使用者會發布有毒內容,但演算法把他們放大到「看起來像每一個人」。\n\n這篇文章提出了「社群核實」(Community Check)——在挑釁性貼文下方顯示真實的民調資料,讓人們能看見實際多數人怎麼想。\n\n大約十分鐘的閱讀,中間有一些真的會讓你「咦」的互動段落:\n" + pageURL + "\n\n想說你應該會覺得有意思。";
+  const emailSubject = '值得花十分鐘：社群媒體沒告訴你的事';
+  const emailBody = "嘿，\n\n我剛讀完一篇互動式的說明，談的是社群媒體如何扭曲我們對彼此的看法。核心發現是：只有約 3% 的使用者會發布有毒內容，但演算法把他們放大到「看起來像每一個人」。\n\n這篇文章提出了「社群核實」(Community Check)——在挑釁性貼文下方顯示真實的民調資料，讓人們能看見實際多數人怎麼想。\n\n大約十分鐘的閱讀，中間有一些真的會讓你「咦」的互動段落：\n" + pageURL + "\n\n想說你應該會覺得有意思。";
   document.getElementById('share-email-btn').href = 'mailto:?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
 
   // Copy link
@@ -3986,7 +4003,7 @@ function submitGuess() {
       this.classList.add('copied');
       const svg = this.querySelector('svg');
       const origHTML = svg.outerHTML;
-      this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg> 已複製!';
+      this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg> 已複製！';
       setTimeout(() => {
         this.classList.remove('copied');
         this.innerHTML = origHTML + ' 複製連結';
