@@ -34,22 +34,22 @@
   var toolbar = document.createElement('div');
   toolbar.id = 'cc-fmt-toolbar';
   toolbar.innerHTML =
-    '<button data-cmd="bold" title="Bold"><b>B</b></button>' +
-    '<button data-cmd="italic" title="Italic"><i>I</i></button>' +
-    '<button data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>' +
+    '<button data-cmd="bold" title="粗體"><b>B</b></button>' +
+    '<button data-cmd="italic" title="斜體"><i>I</i></button>' +
+    '<button data-cmd="strikeThrough" title="刪除線"><s>S</s></button>' +
     '<span class="cc-fmt-sep"></span>' +
-    '<button data-cmd="fontSize" data-val="1" title="Smaller text" class="cc-fmt-size">A&#x2212;</button>' +
-    '<button data-cmd="fontSize" data-val="5" title="Larger text" class="cc-fmt-size cc-fmt-size-up">A+</button>' +
+    '<button data-cmd="fontSize" data-val="1" title="縮小文字" class="cc-fmt-size">A&#x2212;</button>' +
+    '<button data-cmd="fontSize" data-val="5" title="放大文字" class="cc-fmt-size cc-fmt-size-up">A+</button>' +
     '<span class="cc-fmt-sep"></span>' +
-    '<button data-cmd="hiliteColor" data-val="#fef08a" title="Highlight yellow" class="cc-fmt-color" style="background:#fef08a"></button>' +
-    '<button data-cmd="hiliteColor" data-val="#bbf7d0" title="Highlight green" class="cc-fmt-color" style="background:#bbf7d0"></button>' +
-    '<button data-cmd="hiliteColor" data-val="#fecaca" title="Highlight red" class="cc-fmt-color" style="background:#fecaca"></button>' +
+    '<button data-cmd="hiliteColor" data-val="#fef08a" title="黃色螢光標示" class="cc-fmt-color" style="background:#fef08a"></button>' +
+    '<button data-cmd="hiliteColor" data-val="#bbf7d0" title="綠色螢光標示" class="cc-fmt-color" style="background:#bbf7d0"></button>' +
+    '<button data-cmd="hiliteColor" data-val="#fecaca" title="紅色螢光標示" class="cc-fmt-color" style="background:#fecaca"></button>' +
     '<span class="cc-fmt-sep"></span>' +
-    '<button data-cmd="blockClass" data-val="lead" title="Lead paragraph (larger)" class="cc-fmt-block">Lead</button>' +
-    '<button data-cmd="blockClass" data-val="pull" title="Pull quote (italic + border)" class="cc-fmt-block">Pull</button>' +
-    '<button data-cmd="blockClass" data-val="" title="Normal paragraph" class="cc-fmt-block cc-fmt-block-normal">P</button>' +
+    '<button data-cmd="blockClass" data-val="lead" title="導言段落(較大字體)" class="cc-fmt-block">導言</button>' +
+    '<button data-cmd="blockClass" data-val="pull" title="引用段落(斜體 + 邊線)" class="cc-fmt-block">引言</button>' +
+    '<button data-cmd="blockClass" data-val="" title="一般段落" class="cc-fmt-block cc-fmt-block-normal">P</button>' +
     '<span class="cc-fmt-sep"></span>' +
-    '<button data-cmd="removeFormat" title="Clear formatting" class="cc-fmt-clear">&#x2715;</button>';
+    '<button data-cmd="removeFormat" title="清除格式" class="cc-fmt-clear">&#x2715;</button>';
   document.body.appendChild(toolbar);
 
   // Toolbar button handlers
@@ -195,13 +195,13 @@
         '<div style="max-width:900px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between">' +
           '<div style="display:flex;align-items:center;gap:12px">' +
             '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;animation:cc-pulse 2s infinite"></span>' +
-            '<span style="color:#e4e4e7;font-size:13px;font-weight:600;letter-spacing:0.3px">EDIT MODE</span>' +
-            '<span style="color:#555;font-size:12px">Select text for formatting toolbar</span>' +
+            '<span style="color:#e4e4e7;font-size:13px;font-weight:600;letter-spacing:0.3px">編輯模式</span>' +
+            '<span style="color:#555;font-size:12px">選取文字以開啟格式工具列</span>' +
             '<span id="cc-badge" style="display:none;background:rgba(74,222,128,0.15);color:#4ade80;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px"></span>' +
           '</div>' +
           '<div style="display:flex;gap:8px">' +
-            '<button id="cc-save" style="background:#4ade80;color:#000;border:none;padding:8px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px;font-family:inherit;transition:opacity 0.15s">Save</button>' +
-            '<button id="cc-exit" style="background:transparent;color:#888;border:1px solid #333;padding:8px 16px;border-radius:8px;font-weight:500;cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.15s">Exit</button>' +
+            '<button id="cc-save" style="background:#4ade80;color:#000;border:none;padding:8px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px;font-family:inherit;transition:opacity 0.15s">儲存</button>' +
+            '<button id="cc-exit" style="background:transparent;color:#888;border:1px solid #333;padding:8px 16px;border-radius:8px;font-weight:500;cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.15s">離開</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -253,7 +253,7 @@
     var badge = document.getElementById('cc-badge');
     if (changeCount > 0) {
       badge.style.display = 'inline-block';
-      badge.textContent = changeCount + ' change' + (changeCount === 1 ? '' : 's');
+      badge.textContent = changeCount + ' 項變更';
     } else {
       badge.style.display = 'none';
     }
@@ -262,7 +262,7 @@
   // -- Save: download clean HTML --
   document.getElementById('cc-save').addEventListener('click', function() {
     if (changeCount === 0) {
-      alert('No changes to save.');
+      alert('沒有可儲存的變更。');
       return;
     }
 
@@ -301,7 +301,7 @@
 
   // -- Exit --
   document.getElementById('cc-exit').addEventListener('click', function() {
-    if (changeCount > 0 && !confirm('You have ' + changeCount + ' unsaved change(s). Exit anyway?')) return;
+    if (changeCount > 0 && !confirm('您有 ' + changeCount + ' 項未儲存的變更。仍要離開嗎?')) return;
     window.location.href = window.location.pathname;
   });
 

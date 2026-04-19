@@ -1,29 +1,29 @@
-# Code of Conduct
+# 行為準則
 
-## Our Pledge
+## 我們的承諾
 
-We are committed to making participation in this project a harassment-free experience for everyone.
+我們致力於讓所有人都能在本專案中,享有不受騷擾的參與體驗。
 
-## Our Standards
+## 我們的標準
 
-Examples of behavior that contributes to a positive environment:
+有助於營造正向環境的行為包括:
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
+- 使用友善、包容的語言
+- 尊重不同的觀點與經驗
+- 優雅地接受建設性批評
+- 以社群整體利益為依歸
 
-Examples of unacceptable behavior:
+不可接受的行為包括:
 
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information without explicit permission
-- Other conduct which could reasonably be considered inappropriate
+- 嘲弄、侮辱性或貶抑性的言論,以及人身或政治攻擊
+- 公開或私下的騷擾行為
+- 未經明確許可,公開他人私人資訊
+- 其他在合理判斷下,可被視為不適當的行為
 
-## Enforcement
+## 執行
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting the maintainers. All complaints will be reviewed and investigated.
+任何辱罵、騷擾或其他不可接受的行為,皆可透過開立 issue 或聯繫維護者進行檢舉。所有申訴皆會被審閱與調查。
 
-## Attribution
+## 出處
 
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1.
+本行為準則改編自 [Contributor Covenant](https://www.contributor-covenant.org) 2.1 版。

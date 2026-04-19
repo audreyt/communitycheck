@@ -1,77 +1,77 @@
-# Frequently Asked Questions
+# 常見問題
 
-## Isn't polling easily gamed? What stops a coordinated campaign from flooding the results?
+## 民調不是很容易被操弄嗎?有什麼能阻止協調性活動灌爆結果?
 
-You can't flood a system that chooses its respondents randomly. Community Check uses stratified random sampling — the gold standard in survey methodology (Groves et al., *Survey Methodology*, 2nd ed., Wiley, 2009). You don't volunteer to respond. You're selected, like jury duty. Each user responds once per question per 90-day cycle. Coordinated response patterns are anomaly-detected and excluded. The sampling algorithm and exclusion criteria are open-source and auditable.
+你無法灌爆一個「隨機選擇受訪者」的系統。社群核實採用分層隨機抽樣——調查方法學的黃金標準(Groves 等人,《Survey Methodology》第 2 版,Wiley, 2009)。你不是自願回答的。你是被選中的,就像被抽中當陪審員一樣。每位使用者每 90 天週期內,每題只能回答一次。協調性的回應模式會被異常偵測並排除。抽樣演算法與排除準則皆為開源、可稽核。
 
-This is the same methodology behind national polls that reliably measure opinion across 330 million people using samples of just 1,000–2,000 respondents. The key isn't sample size — it's random selection. A platform with hundreds of millions of users has an even larger pool to draw from, making representative sampling more robust, not less.
+這與全國民調背後是同一套方法學——它們以僅 1,000–2,000 位受訪者的樣本,可靠地測量了 3.3 億人的意見。關鍵不在於樣本規模——而在於隨機選取。一個擁有數億使用者的平台,有更大的池可供抽取,讓代表性抽樣更為穩健,而非更脆弱。
 
-Right now, a single viral post from one account can shape the perceived consensus of millions. Community Check replaces that with N>100,000 randomly selected responses — orders of magnitude larger than any national poll, and a dramatically higher bar than the status quo.
+當前現況是:單一帳號的一則病毒式貼文,就能形塑數百萬人感知到的共識。社群核實則以 N>100,000 的隨機選取回應取而代之——比任何全國民調都大上幾個數量級,是遠比現狀高出許多的標準。
 
-## Who decides what questions get asked? That's where the bias lives.
+## 誰來決定要問哪些問題?偏誤不就藏在那裡嗎?
 
-In the ideal implementation, questions are governed by a bridging algorithm — the same approach Community Notes uses. Questions are proposed by a diverse pool of contributors and only enter the active taxonomy if they earn approval from contributors who historically disagree with each other. Loaded or partisan questions are filtered out structurally, not by any single editorial board. AAPOR standards for neutral question design apply: balanced language, all reasonable response options, no leading framing.
+在理想實作中,問題由橋接演算法治理——與 Community Notes 採用的同一套做法。問題由多元的貢獻者池提案,只有獲得「歷史上彼此意見不合」的貢獻者核可,才能進入活躍分類體系。引導性或黨派色彩問題在結構上被濾除,而非由任何單一編輯委員會決定。AAPOR 中立題目設計標準同樣適用:平衡的措辭、所有合理的回應選項、不帶引導性框架。
 
-For the open-source starting point, questions come from established polling organizations (Pew, Gallup, AP-NORC) with published methodology. The full question taxonomy is open — any researcher or journalist can audit the wording. That's a level of transparency no social media algorithm currently offers.
+對於開源的起點,問題來自具備公開方法論的既有民調機構(Pew、Gallup、AP-NORC)。完整的問題分類體系為開放——任何研究者或記者都能稽核措辭。這是目前所有社群媒體演算法都不提供的透明度水準。
 
-## Doesn't this just become another tool for the majority to silence minorities?
+## 這不會變成另一個讓多數壓制少數的工具嗎?
 
-Right now, the system already silences the actual majority. The spiral of silence — people self-censoring because they falsely believe they're in the minority — is one of the most replicated findings in political communication ([Noelle-Neumann, 1974](https://doi.org/10.1111/j.1460-2466.1974.tb00367.x)). [Hampton et al. (Pew Research, 2014)](https://www.pewresearch.org/internet/2014/08/26/social-media-and-the-spiral-of-silence/) found social media makes this worse: people who sensed their Facebook network disagreed with them were less likely to speak up both online and in person. Community Check breaks that cycle.
+當前現況是:系統已經在壓制實際的多數。沉默螺旋——人們因錯誤地相信自己屬於少數而自我審查——是政治傳播學中最被反覆驗證的發現之一([Noelle-Neumann, 1974](https://doi.org/10.1111/j.1460-2466.1974.tb00367.x))。[Hampton 等人(Pew Research, 2014)](https://www.pewresearch.org/internet/2014/08/26/social-media-and-the-spiral-of-silence/) 發現社群媒體讓情況更糟:感知到 Facebook 網絡與自己意見不合的人,在線上與線下都比較不願意發聲。社群核實打破這個循環。
 
-It also explicitly displays minority positions — when 15% hold a view, that number appears clearly. A minority position accurately shown at 15% is far healthier than one that looks like 50% through amplification or 0% through suppression. Everyone benefits from seeing the real picture.
+它也明確地呈現少數立場——當 15% 持某種觀點時,那個數字會清楚顯示出來。被準確顯示為 15% 的少數立場,遠比被放大成像 50% 或被壓制成像 0% 來得健康。所有人都受益於看見真實樣貌。
 
-## Why should I trust polls at all? They got 2016 wrong. They got 2020 wrong.
+## 為什麼要相信民調?2016 年它們搞錯了。2020 年也搞錯了。
 
-Election forecasting and opinion measurement are different things. Community Check doesn't predict elections. It measures policy preferences — "Do you support background checks?" — which are far more stable and far easier to measure than vote intention. When Pew reports 87% support for background checks across 15 years of polling with N=5,000+, that's a measurement with a published margin of error, not a prediction.
+選舉預測與意見測量是兩回事。社群核實不預測選舉。它測量政策偏好——「您支不支持背景查核?」——這比投票意向遠為穩定、遠為容易測量。當皮尤橫跨 15 年、以 N=5,000+ 的民調報告 87% 支持背景查核時,那是一筆有公開誤差範圍的測量,不是預測。
 
-The platform sample adds N>100,000 — 50–100x larger than typical national polls, with margins of error below ±0.5%. That's an extraordinarily reliable signal, and it updates continuously.
+平台樣本另外加上 N>100,000——比典型全國民調大 50–100 倍,誤差範圍低於 ±0.5%。那是極為可靠的訊號,而且持續更新。
 
-## This feels like social engineering. Who gave anyone permission to "correct" my perception?
+## 這聽起來像社會工程。誰准許任何人來「修正」我的認知?
 
-Your perception is already being shaped — by algorithms that prioritize engagement over accuracy. Community Check simply makes additional information visible: what a representative sample of people actually believe. You can agree, disagree, or ignore it entirely.
+你的認知早已被形塑——被那些把互動率優先於準確性的演算法所形塑。社群核實只是讓額外的資訊可見:具代表性的樣本實際上相信什麼。你可以同意、不同意,或完全忽略它。
 
-Think of nutrition labels. The Nutrition Labeling and Education Act of 1990 didn't tell people what to eat — it made the information available. Community Check does the same for public opinion: standardized, transparent data beneath content that is already shaping how you see the world.
+把它想成營養標示。1990 年的《營養標示與教育法》並沒有告訴人們該吃什麼——它讓資訊變得可得。社群核實對公眾意見做同樣的事:在已經形塑你看待世界方式的內容下方,提供標準化、透明的資料。
 
-## How is this different from Community Notes on X/Twitter?
+## 這跟 X/Twitter 上的 Community Notes(社群備註)有什麼不同?
 
-They solve different problems. Community Notes evaluates whether specific claims are true or false, written by self-selected volunteers rated via a bridging algorithm ([Wojcik et al., 2022](https://arxiv.org/abs/2210.15723)). Community Check doesn't assess truth — it shows what people think about the policy topic a post discusses. A post can be entirely accurate and still create a distorted picture of where the public stands.
+兩者解決不同的問題。社群備註評估特定主張的真偽,由透過橋接演算法評分的自選志工撰寫([Wojcik 等人, 2022](https://arxiv.org/abs/2210.15723))。社群核實不評估真偽——它呈現人們對該貼文所討論政策議題的想法。一則貼文可以完全準確,卻仍創造對「公眾立場」扭曲的圖像。
 
-The data source matters too. Community Notes contributors self-select in — and [More in Common (2019)](https://perceptiongap.us/) found that the most politically engaged users have the largest perception gaps (nearly 3x more distorted than disengaged users). Community Check uses random sampling and peer-reviewed national surveys. Both tools are valuable; they complement each other.
+資料來源也很重要。社群備註的貢獻者是自我選擇加入的——而 [More in Common(2019)](https://perceptiongap.us/) 發現政治參與度最高的使用者,認知落差也最大(比參與度低者扭曲程度高出近 3 倍)。社群核實使用隨機抽樣與同儕審查的全國調查。兩種工具都有價值;它們互補。
 
-## Doesn't showing consensus numbers just create conformity pressure?
+## 顯示共識數字,難道不會製造從眾壓力嗎?
 
-The research consistently shows the opposite. The social norms approach — correcting misperceived norms by showing accurate data — has been validated across 200+ studies (Berkowitz, *Changing the Culture of College Drinking*, Hampton Press, 2004). [Tankard & Paluck (2016)](https://doi.org/10.1111/sipr.12022) found that accurate norm information corrects misperceptions without coercion — it reveals what people already privately believe, rather than pressuring them into something new.
+研究一致顯示相反的結果。社會規範取向(social norms approach)——透過顯示準確資料來修正被誤解的規範——已在 200 多項研究中獲得驗證(Berkowitz,《Changing the Culture of College Drinking》, Hampton Press, 2004)。[Tankard & Paluck(2016)](https://doi.org/10.1111/sipr.12022) 發現準確的規範資訊在不需強迫的情況下修正錯誤認知——它揭示人們已經私下相信的事,而非把他們推向新的東西。
 
-[Mernyk et al. (PNAS, 2022, n=4,741)](https://doi.org/10.1073/pnas.2116851119) showed this directly: correcting inaccurate metaperceptions reduced support for partisan violence, with effects lasting ~26 days. People didn't conform — they recalibrated, and felt better about each other as a result.
+[Mernyk 等人(PNAS, 2022, n=4,741)](https://doi.org/10.1073/pnas.2116851119) 直接證明了這一點:修正不準確的後設感知降低了對黨派暴力的支持,效果持續約 26 天。人們並未從眾——他們重新校準,並因此對彼此感覺更好。
 
-## What about topics where the "consensus" is just wrong?
+## 那如果某個議題上的「共識」其實是錯的呢?
 
-Community Check doesn't claim majority opinion equals truth. It provides a map of what people actually think — which is valuable precisely when your estimate of the room is off by 200–400%, as [Ahler & Sood (2018)](https://doi.org/10.1086/697253) documented. If 70% of people believe something you disagree with, knowing that number helps you understand the world you're operating in. Hiding it doesn't make the disagreement go away.
+社群核實並未主張「多數意見等於真理」。它提供的是「人們實際上怎麼想」的地圖——這在你對「房間裡的情況」估計偏差 200–400% 時尤其有價值,正如 [Ahler & Sood(2018)](https://doi.org/10.1086/697253) 所記錄的那樣。若 70% 的人相信你不同意的事,知道那個數字有助於你理解你身處的世界。隱藏它並不會讓不同意見消失。
 
-Both majority and minority positions are always displayed with their numbers. This isn't "the crowd says you're wrong." It's "here's what the room actually looks like" — and that's useful no matter where you stand in it.
+多數與少數立場永遠都會以其數字一同呈現。這不是「群眾說你錯了」,而是「房間實際上長什麼樣」——而那不論你站在哪一邊,都是有用的。
 
-## This only works for issues with clear polling data, right?
+## 這只對有清楚民調資料的議題才有用,對嗎?
 
-Correct — by design. Community Check activates only when reliable polling data exists, a documented perception gap has been identified, and a post reaches >10K impressions. That covers ~50–100 major policy questions. Posts about niche topics or emerging controversies without polling data get no Community Check.
+正確——這是設計使然。社群核實只在「可靠的民調資料存在」、「已記錄的認知落差被指認」、且「貼文觸及 >10K 曝光」時才會啟動。這涵蓋約 50–100 個重大政策問題。關於利基主題或缺乏民調資料的新興爭議的貼文,不會獲得社群核實。
 
-The topic-matching confidence threshold is 0.8 — if the system isn't sure, it stays silent. False positives are worse than gaps. This is intentionally focused on the specific, well-documented cases where perception gaps are largest: gun policy, climate, immigration, healthcare, money in politics. Start where the data is strongest, and expand from there.
+主題配對的信心門檻是 0.8——若系統不確定,就保持沉默。錯誤配對比遺漏更糟。這刻意聚焦在「認知落差最大、文獻記錄最完整」的具體案例:槍枝政策、氣候、移民、醫療、政治金錢。從資料最強處出發,再從那裡擴張。
 
-## What's stopping governments from using this to manufacture consent?
+## 有什麼能阻止政府用這個來「製造共識」?
 
-This is a legitimate question, and one worth exploring carefully. It's entirely possible that a government — or any well-resourced actor — could try to use a system like this to pollute polling data and distort public perception. The history of opinion measurement is full of attempts to do exactly that. For this reason, **transparency is the most important property of the design.**
+這是個正當的提問,值得仔細探討。完全有可能政府——或任何資源充足的行動者——會嘗試以類似系統來污染民調資料、扭曲公眾認知。意見測量的歷史充滿了這類嘗試。也因此,**透明度是這個設計最重要的性質。**
 
-The architecture is built to make manipulation detectable. Data comes from independent polling organizations — not governments, not platforms. The sampling algorithm is open-source. Question wording is published. Methodology is auditable. Quarterly transparency reports detail every step from sampling to display.
+這個架構的設計目標,是讓操弄被偵測得到。資料來自獨立民調機構——不是政府、不是平台。抽樣演算法是開源的。問題措辭是公開的。方法論是可稽核的。每季的透明度報告詳述從抽樣到顯示的每一步。
 
-Compromising it would require simultaneously infiltrating multiple independent polling organizations, altering open-source code inspected by thousands of researchers, and evading anomaly detection. That's a high bar — and one that gets higher as more independent eyes are watching. Today's platform algorithms shape public perception at scale with zero transparency and zero public oversight. Community Check raises the baseline significantly, but it depends on a vigilant community of researchers, journalists, and engineers continuing to inspect it.
+要破壞它,必須同時滲透多個獨立民調機構、變更被數千名研究者檢視的開源程式碼、且躲過異常偵測。那是極高的門檻——而且隨著更多獨立的眼睛在看,門檻只會更高。今天的平台演算法以零透明度、零公眾監督的方式形塑公眾認知。社群核實大幅提升了基準,但它仍仰賴一個警覺的研究者、記者與工程師社群持續進行檢視。
 
-## I form my own opinions. Why would I want this?
+## 我會自己形成意見。為什麼我會想要這個?
 
-Independent thinking requires accurate inputs. Right now, the feed is giving you wildly inaccurate ones. [Sparkman et al. (Nature Communications, 2022, n=6,119)](https://doi.org/10.1038/s41467-022-32412-y) found Americans underestimate popular climate policy support by nearly half — 80% actually support renewable energy siting, but people estimate 43%. [Moore-Berg et al. (PNAS, 2020)](https://doi.org/10.1073/pnas.2001263117) found partisans overestimate the other side's hostility by roughly 2x. These aren't matters of opinion — they're factual errors about the world around you.
+獨立思考需要準確的輸入。當前現況是,動態消息給你的是極不準確的輸入。[Sparkman 等人(Nature Communications, 2022, n=6,119)](https://doi.org/10.1038/s41467-022-32412-y) 發現美國人對熱門氣候政策支持的低估將近一半——80% 實際上支持再生能源建設,人們估計卻是 43%。[Moore-Berg 等人(PNAS, 2020)](https://doi.org/10.1073/pnas.2001263117) 發現黨派支持者對另一邊的敵意高估約兩倍。這些不是意見問題——這些是關於你身邊世界的事實謬誤。
 
-Community Check doesn't ask you to care what others think. It gives you an accurate picture so your independent opinions are based on reality, not on an algorithmically curated distortion of it.
+社群核實不要求你在乎別人怎麼想。它給你一張準確的圖像,讓你的獨立意見奠基於現實,而非演算法策展的扭曲版本之上。
 
-## Won't people just dismiss the data if it contradicts their beliefs?
+## 萬一資料與某人的信念相牴觸,他們不就直接無視嗎?
 
-Correcting metaperceptions — beliefs about what others believe — works differently than correcting factual beliefs. Factual corrections can trigger defensiveness. But learning "the other side is less extreme than you thought" tends to be relieving, not threatening. It lowers the temperature.
+修正後設感知——對「他人相信什麼」的信念——與修正事實信念的運作方式不同。事實修正可能引發防衛反應。但學到「另一邊沒你想得那麼極端」這件事,通常令人鬆一口氣,而非威脅性。它降低了溫度。
 
-[Lee et al. (PNAS Nexus, 2025, n=1,090)](https://doi.org/10.1093/pnasnexus/pgaf310) found that correcting overestimates of toxic social media users improved positive emotions and reduced perceived moral decline. [Mernyk et al. (PNAS, 2022, n=4,741)](https://doi.org/10.1073/pnas.2116851119) found effects lasting ~26 days from a single correction. Community Check targets this same mechanism — not what you believe, but what you believe others believe. That's where the distortion lives, and that's where the correction is most effective.
+[Lee 等人(PNAS Nexus, 2025, n=1,090)](https://doi.org/10.1093/pnasnexus/pgaf310) 發現修正對有毒社群媒體使用者比例的高估,改善了正面情緒、降低對道德衰退的感知。[Mernyk 等人(PNAS, 2022, n=4,741)](https://doi.org/10.1073/pnas.2116851119) 發現一次修正的效果可持續約 26 天。社群核實鎖定的正是同一個機制——不是你相信什麼,而是「你以為別人相信什麼」。扭曲就藏在那裡,而那裡也是修正最有效的地方。

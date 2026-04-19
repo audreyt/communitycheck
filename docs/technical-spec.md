@@ -1,272 +1,272 @@
-# Technical Specification
+# 技術規格
 
-> *This design builds on the bridging-based consensus work pioneered by Audrey Tang and vTaiwan, the crowd-sourced bridging algorithms developed by the authors of Community Notes, and Steven Pinker's analysis of common knowledge as a lever for collective behavior change.*
+> *本設計奠基於唐鳳(Audrey Tang)與 vTaiwan 所開創的橋接式共識工作、Community Notes 作者群所開發的群眾外包橋接演算法,以及史迪芬・平克(Steven Pinker)對「共同知識」作為集體行為改變槓桿的分析。*
 
-Community Check is a two-tier data system that attaches representative public opinion to high-reach social media posts. This document covers the full architecture.
+社群核實(Community Check)是一套雙層資料系統,將具代表性的公眾意見,附加到高觸及的社群媒體貼文上。本文件涵蓋完整的架構。
 
-![Pipeline diagram: 4 stages (Trigger → Classify → Lookup → Display) feeding from Tier 1 national polls and Tier 2 platform random sampling](../design/pipeline-flow.png)
+![流程圖:四個階段(觸發 → 分類 → 查找 → 顯示),由第一層全國民調與第二層平台隨機抽樣餵入資料](../design/pipeline-flow.png)
 
-The UI attaches to qualifying posts like this:
+UI 會像這樣附加在符合條件的貼文上:
 
-![Community Check collapsed state: a viral post with a prompt beneath it](../design/mockup-collapsed.png)
+![社群核實收合狀態:一則病毒式傳播的貼文,下方有提示](../design/mockup-collapsed.png)
 
-And expands to show representative opinion data:
+並展開以呈現具代表性的意見資料:
 
-![Community Check expanded state: polling results with platform and national toggle](../design/mockup-expanded.png)
+![社群核實展開狀態:民調結果並提供平台與全國分頁切換](../design/mockup-expanded.png)
 
-## Data Architecture
+## 資料架構
 
-Community Check draws from two independent data sources, shown side-by-side so users can compare what this platform's users think versus what Americans think nationally.
+社群核實取材自兩種獨立的資料來源,並列呈現,讓使用者可以比較「本平台使用者怎麼想」與「全美國民怎麼想」。
 
-### Tier 1: Trusted External Polls
+### 第一層:可信賴的外部民調
 
-Gold-standard, nationally representative surveys from established providers:
+來自既有機構、具有黃金標準、全國代表性的調查:
 
-- **Pew Research Center** — ongoing social/political tracking
-- **Gallup** — longest-running U.S. opinion polling
-- **AP-NORC** — Associated Press + NORC at UChicago
-- **KFF** — health policy polling
+- **皮尤研究中心(Pew Research Center)**——持續性的社會/政治追蹤
+- **蓋洛普(Gallup)**——美國歷時最久的意見民調
+- **AP-NORC**——美聯社 + 芝加哥大學 NORC
+- **KFF**——醫療政策民調
 
-Quarterly refresh cycle. Each data point linked to published methodology. Auditable and versioned.
+每季更新一次。每一筆資料皆連結至公開的方法論。可審計、有版本控制。
 
-### Tier 2: Platform Random Sampling
+### 第二層:平台隨機抽樣
 
-Real-time polling of platform users via stratified random sampling.
+對平台使用者進行即時的分層隨機抽樣民調。
 
-**Who gets sampled:** A random selection from all active accounts (logged in within 30 days). Not based on posting history, engagement, or follower count. A lurker with 3 followers has the same selection probability as an influencer with 3 million.
+**抽樣對象:** 從所有活躍帳號(30 天內登入)中隨機選取。不依發文紀錄、互動或追蹤者數量挑選。一個只有 3 位追蹤者的潛水使用者,與一位有 300 萬追蹤者的網紅,被選中的機率完全相同。
 
-**How they're selected:** Stratified random sampling — the user base is divided into strata by geography (state/region), account age (new vs. established), and activity level (daily vs. weekly). Random draws are taken from each stratum proportionally, ensuring the sample mirrors the platform's actual user demographics, not its loudest demographics.
+**選取方式:** 分層隨機抽樣——使用者基數依地理位置(州/區域)、帳號年齡(新vs.舊)與活躍程度(每日vs.每週)劃分為不同層級。從每一層中按比例隨機抽取,確保樣本反映的是平台「實際的使用者組成」,而非「最大聲的那群人」。
 
-**What they're asked:** Short, neutrally worded policy questions — never framed toward a particular answer. Example: "Should there be limits on money spent on political campaigns?" not "Do you support stopping corruption in politics?" Questions are developed and reviewed by the polling consortium's editorial board.
+**所詢問的內容:** 簡短、措辭中立的政策問題——絕不導向特定答案。例如:「政治選舉花費應該設限嗎?」而不是「您支不支持終結政治貪腐?」問題由民調聯盟的編輯委員會研擬與審查。
 
-**How they respond:** Users receive an in-app prompt (similar to existing satisfaction surveys platforms already run). Responses are optional. Non-response bias is mitigated by oversampling underrepresented strata and weighting results to match known platform demographics.
+**回答方式:** 使用者會在 app 內收到提示(類似平台既有的滿意度調查)。回答是自願性的。無回應偏誤(non-response bias)透過超額抽樣(oversampling)代表性不足的層級,並依據已知平台人口統計加權結果來緩解。
 
-**Anonymity:** Responses are cryptographically anonymized at the point of collection. The system records the response and the stratum it came from — never the user ID. Responses cannot be linked back to profiles, posts, or browsing behavior.
+**匿名性:** 回應在收集當下即以密碼學方式匿名化。系統只記錄回應內容與其所來自的層級——絕不記錄使用者 ID。回應無法追溯回個人檔案、貼文或瀏覽行為。
 
-**Sample size:** Targets N>100,000 per question for major topics, producing margins of error below ±0.5%. For context, most national polls use N=1,000–2,000. The platform sample is 50–100x larger.
+**樣本規模:** 主要議題每題目標 N>100,000,誤差範圍可低於 ±0.5%。作為對照,大多數全國民調樣本為 N=1,000–2,000。平台樣本是其 50–100 倍。
 
-**Refresh cycle:** Continuous — new respondents are sampled daily. Results reflect a rolling 30-day window, automatically aging out old responses. This means the data tracks real shifts in opinion, not a single snapshot.
+**更新週期:** 持續性——每天有新受訪者被抽選。結果反映滾動的 30 天視窗,自動淘汰舊回應。這意味著資料追蹤的是真實的意見變動,而非單一時點的快照。
 
-**Preventing gaming:** Each user can only respond once per question per 90-day cycle. Responses are rate-limited and anomaly-detected — coordinated response patterns (e.g., 10,000 identical responses from accounts created the same week) are flagged and excluded. The sampling algorithm itself is the primary defense: you can't game a system that chooses respondents randomly and doesn't tell you when you'll be chosen.
+**防止操弄:** 每位使用者每 90 天週期內,每題只能回答一次。回應有速率限制,並進行異常偵測——協調性回應模式(例如同一週建立的 10,000 個帳號發出相同回應)會被標記並排除。抽樣演算法本身就是首要防線:你無法操弄一個隨機選擇受訪者、且不告訴你何時會被選中的系統。
 
-**Open-source and auditable:** The sampling algorithm, weighting methodology, and anomaly detection rules are published as open-source code. Independent researchers can audit the full pipeline from sampling frame to displayed result. Quarterly transparency reports publish response rates, demographic breakdowns, and any excluded anomalies.
+**開源且可稽核:** 抽樣演算法、加權方法與異常偵測規則,皆以開源程式碼形式發布。獨立研究者可以稽核從抽樣框架到最終顯示結果的完整流程。每季的透明度報告會公布回應率、人口統計分布,以及任何被排除的異常。
 
-**What everyone sees:** All users see the same results for the same question. The numbers are not personalized, not filtered by your social graph, and not adjusted based on your engagement history. This is the critical difference from everything else in the feed.
-
----
-
-## Topic Classification
-
-Mapping posts to poll questions. This is the hardest technical problem in Community Check — and modern LLMs make it tractable.
-
-### Step 1: Curated Question Taxonomy
-
-~50–100 neutrally worded policy questions, each linked to polling data. Examples:
-
-- "Should background checks be required for all gun purchases?"
-- "Should there be limits on money spent on political campaigns?"
-- "Should the U.S. take significant action on climate change?"
-
-Questions are governed by bridging-based approval (see [Data Sources & Governance](#data-sources--governance)). The taxonomy starts small and expands conservatively.
-
-### Step 2: LLM-Based Post Classification
-
-When a post meets the trigger criteria (reach + engagement + topic signal), an LLM call classifies it against the taxonomy:
-
-- **Input:** Post text, any quoted/linked content, author context (topic history), thread context if a reply
-- **Prompt structure:** "Given this post, which of the following policy questions (if any) is it primarily discussing? Return the question ID and a confidence score from 0–1. If no question is a strong match, return null."
-- **Model:** A fine-tuned classifier or a general-purpose LLM (GPT-4 class). Platforms already run models of this capability for content moderation and ad targeting.
-- **Confidence threshold:** Match confidence must exceed 0.8 to attach a Community Check. At this threshold, expect ~90%+ precision — the system stays silent when uncertain.
-
-### Step 3: Multi-Agent Verification (High-Stakes Posts)
-
-For posts approaching viral thresholds (>100K impressions), a second independent classification pass runs:
-
-- Two independent LLM calls with different prompt framings classify the same post
-- Both must agree on the matched question and both must exceed 0.8 confidence
-- **Disagreement → no match.** If the two classifiers disagree, the post gets no Community Check. Conservative by design.
-- **Edge case flagging:** Posts that receive one match and one null are flagged for human review, building training data for future improvements.
-
-### Step 4: User Feedback Loop
-
-Users who interact with a Community Check can flag mismatches ("This post isn't about gun policy"). This feedback is:
-
-- Aggregated and weighted (bridging-based: flags from users who normally disagree carry more weight)
-- Used to retrain/fine-tune the classifier on real-world edge cases
-- Published in quarterly transparency reports: match rates, flag rates, correction rates
-
-### Known Hard Cases
-
-- **Sarcasm and irony:** "Sure, let's just give everyone a gun" — the classifier doesn't need to determine the poster's stance (Community Check is non-directional), but it does need to identify the topic. LLMs are significantly better at topic detection than stance detection.
-- **Multi-topic posts:** A post about "immigration and the economy" could map to either taxonomy. The system picks the strongest match above 0.8, or returns null if ambiguous.
-- **Evolving language:** Slang, coded language, and memes shift faster than classifiers update. The user feedback loop and quarterly retraining address this, but there will always be a lag.
-
-The taxonomy is intentionally small. The goal is not to cover every opinion — it's to cover the topics where perception gaps are largest and best documented.
+**所有人看到一樣的:** 同一題,所有使用者看到相同的結果。數字不個人化、不依您的社交網絡篩選、也不依您的互動歷史調整。這是與動態消息中其他一切最關鍵的差異。
 
 ---
 
-## Trigger Criteria
+## 主題分類
 
-Not every post needs context. Community Check activates when a post meets **all three criteria**:
+將貼文對應到民調問題。這是社群核實中最困難的技術問題——而現代 LLM 讓它變得可行。
 
-| Criterion | Threshold | Rationale |
+### 步驟一:精選的問題分類體系
+
+約 50–100 條措辭中立的政策問題,各自連結到民調資料。範例:
+
+- 「所有槍枝購買都應要求進行背景查核嗎?」
+- 「政治選舉花費應該設限嗎?」
+- 「美國應對氣候變遷採取重大行動嗎?」
+
+問題透過橋接式核可機制治理(見[資料來源與治理](#資料來源與治理))。分類體系從小開始,保守地擴張。
+
+### 步驟二:LLM 貼文分類
+
+當貼文符合觸發條件(觸及 + 互動 + 主題訊號)時,會以 LLM 呼叫,將其與分類體系比對:
+
+- **輸入:** 貼文文字、任何引述/連結內容、作者脈絡(主題歷史)、若為回覆則包含串文脈絡
+- **提示結構:** 「給定這則貼文,下列政策問題(若有)中,它主要在討論哪一個?回傳問題 ID 與 0–1 之間的信心分數。若無問題與其強烈匹配,則回傳 null。」
+- **模型:** 微調過的分類器或通用 LLM(GPT-4 等級)。平台已在內容審核與廣告投放上使用同等能力的模型。
+- **信心門檻:** 配對信心須超過 0.8 才會附加社群核實。在此門檻下,預期精準度約 90%+——系統在不確定時保持沉默。
+
+### 步驟三:多代理人驗證(高風險貼文)
+
+對於接近病毒門檻的貼文(>100K 曝光),會執行第二輪獨立分類:
+
+- 兩次獨立的 LLM 呼叫,以不同提示框架對同一貼文進行分類
+- 兩者必須對同一問題達成一致,且皆超過 0.8 信心
+- **意見不合 → 不配對。** 若兩個分類器意見不一,該貼文不會獲得社群核實。設計上採保守做法。
+- **邊界案例標記:** 一個配對而另一個為 null 的貼文,會被標記供人工審查,作為未來改進的訓練資料。
+
+### 步驟四:使用者回饋迴圈
+
+與社群核實互動的使用者,可以標記不匹配的情況(「這則貼文與槍枝政策無關」)。這些回饋會:
+
+- 進行匯總與加權(基於橋接式:來自彼此通常意見不合的使用者的標記具有更高權重)
+- 用於在真實邊界案例上重新訓練/微調分類器
+- 在每季透明度報告中公布:配對率、標記率、修正率
+
+### 已知的困難案例
+
+- **諷刺與反語:** 「對啦,讓大家都拿槍就好了」——分類器不需判斷發文者立場(社群核實不帶方向性),但需要辨識主題。LLM 在主題偵測上明顯優於立場偵測。
+- **多主題貼文:** 一則同時談「移民與經濟」的貼文,可能比對到任一分類體系。系統會選擇 0.8 以上最強的配對,若有歧義則回傳 null。
+- **語言演變:** 俚語、暗語、迷因的演變速度,快過分類器的更新。使用者回饋迴圈與每季再訓練可緩解,但永遠會有時間差。
+
+分類體系刻意保持精簡。目標不是涵蓋所有意見——而是涵蓋「認知落差最大、文獻記錄最完整」的那些主題。
+
+---
+
+## 觸發條件
+
+不是每則貼文都需要脈絡。社群核實只在貼文同時符合**所有三項條件**時才啟動:
+
+| 條件 | 門檻 | 理由 |
 |-----------|-----------|-----------|
-| Reach | >10K impressions | Post is being seen widely enough to shape perception |
-| Engagement heat | Reply ratio >2% OR quote ratio >0.5% | Disproportionate reaction — emotional rather than informational processing |
-| Topic match confidence | >0.8 | Classifier has high confidence the post maps to a curated poll question |
+| 觸及 | >10K 曝光 | 貼文已被廣泛看見,足以塑造認知 |
+| 互動熱度 | 回覆比例 >2% 或引用比例 >0.5% | 反應失衡——情緒性處理而非資訊性處理 |
+| 主題配對信心 | >0.8 | 分類器對貼文與精選民調問題的對應有高度信心 |
 
-This means most posts — casual conversation, photos, jokes — are never touched. Community Check only appears on high-reach, high-heat posts about contested policy topics where perception gaps are documented.
+這意味著大多數貼文——日常閒聊、照片、玩笑——絕不會被觸及。社群核實只出現在「高觸及、高熱度、且涉及已記錄認知落差的爭議性政策議題」的貼文上。
 
-The thresholds are tunable. Platforms could start conservative (higher thresholds) and expand based on user reception data.
-
----
-
-## Data Sources & Governance
-
-Community Check can work at two levels, and the ideal system uses both.
-
-### Starting Point: Curated Third-Party Polls
-
-An open-source implementation can launch immediately by aggregating existing peer-reviewed polling data:
-
-- **Trusted sources:** Pew, Gallup, AP-NORC, KFF, and similar organizations with published methodology and AAPOR-standard reporting
-- **Standardized format:** Each data point includes: question text, sample size, margin of error, methodology, date of fieldwork, and raw crosstabs
-- **Versioned and auditable:** Every data update is logged with full provenance. The full pipeline from survey to displayed number is open to inspection
-- **Multiple polls per topic:** Users can tab between different polls on the same issue, seeing different wordings and providers — transparency about how framing affects results
-
-### Ideal: Platform-Native Polling with Bridging-Based Governance
-
-The strongest version runs directly on the platform, using a bridging algorithm to govern which questions are asked — similar to how Community Notes uses bridging to surface notes that earn agreement across ideological divides:
-
-- **Question proposal:** Questions are proposed by a diverse pool of contributors (researchers, journalists, citizens) — not by the platform itself
-- **Bridging-based approval:** A question only enters the active taxonomy if it receives approval from contributors who historically disagree with each other. This filters out loaded or partisan questions structurally, without relying on any single editorial board
-- **Conservative triggering:** Questions activate only when the match confidence is high (>0.8) and the post meets reach + engagement thresholds. The system is designed to stay silent when uncertain — gaps are better than false matches
-- **Platform-native sampling:** The platform runs its own stratified random sample of users, producing real-time data at N>100,000 with margins of error below ±0.5%
-- **Open-source algorithm:** The sampling algorithm, bridging model, and question taxonomy are all published. Independent researchers can audit every layer
-
-The bridging approach solves the "who decides?" problem without relying on any single institution. Neutrality emerges from the structure of the system, not from the good intentions of its operators.
-
-### How Bridging Selects Question Framings
-
-Question framing is the single highest-leverage decision in the entire system. *"Should background checks be required for all gun purchases?"* and *"Should the government require permission to buy a firearm?"* measure ostensibly the same policy attitude — but consistently produce different numbers. If Community Check picks the wrong framing, the displayed consensus is itself a distortion.
-
-A bridging algorithm — adapted from the Community Notes design ([Wojcik et al., 2022](https://arxiv.org/abs/2210.15723)) — solves this by structurally requiring cross-ideological approval before a framing enters production. Here's how it works in practice:
-
-**1. Open question proposal.** Any contributor in the pool (researchers, journalists, citizens, civil society organizations) can submit a candidate framing for a topic. Each submission includes:
-
-- The exact question text
-- Source poll(s) that have used identical or near-identical wording
-- A short rationale for why this wording is neutral
-- A list of the answer options it permits
-
-**2. Diverse rater pool.** Contributors are profiled by their *historical rating behavior*, not by self-declared affiliation. The bridging model learns which raters tend to approve which questions. Two raters who consistently approve the same questions are clustered as "ideologically similar"; two who consistently disagree are clustered as "ideologically distant." This is a learned latent variable, not a self-report.
-
-**3. Bridging score for each candidate framing.** For a candidate question to be approved, it must achieve a *bridging score* — a measure of how much it earns approval across rater groups that don't usually agree. A question that gets 100% approval from one cluster and 0% from another scores poorly, regardless of its absolute approval rate. A question that earns moderate approval across all clusters scores highly. This is mathematically the same approach Community Notes uses to surface notes that "find common ground."
-
-**4. Adversarial probes.** Before deployment, candidate framings are tested against deliberately loaded variants. If the bridging algorithm cannot distinguish the candidate from a clearly biased version (e.g., a candidate paired with *"Should we close the loophole that lets dangerous people buy guns?"*), the candidate is rejected. This prevents subtle priming effects from slipping through.
-
-**5. Multiple framings per topic.** Where bridging produces several near-equivalent candidates, *all of them* are kept and rotated. Users in the expanded view can see the percentage breakdown for each individual framing. This is itself transparency — the median across qualifying polls becomes the headline number, but the underlying variance is visible.
-
-**6. Periodic re-validation.** Language drifts. A framing that was neutral in 2026 may carry partisan connotations by 2030. Approved framings are re-rated quarterly by the bridging pool; if a previously-approved question's bridging score falls below threshold, it's deprecated and removed from rotation.
-
-**Selection criteria for the contributor pool itself.** The bridging algorithm is only as good as the diversity of its raters. Bootstrapping the pool requires explicit recruitment from groups that would otherwise be underrepresented:
-
-- Active contributors are surveyed quarterly to map the pool's actual distribution across multiple dimensions (partisan identity, ideological score, demographic characteristics, geographic spread)
-- Imbalances trigger targeted outreach to underrepresented groups
-- A minimum threshold of cross-ideological raters is required before any new question can earn approval — small or homogeneous pools cannot promote framings until diversity is restored
-- Contributor reputation is tracked via the bridging model itself: contributors whose ratings consistently align with the cross-cluster consensus gain weight; those whose ratings are highly partisan but rarely bridging gain less
-
-**What this prevents:**
-
-- *Loaded framings* ("the gun loophole" vs. "private sale exception") — both flagged as partisan-coded, neither approved
-- *False neutrality* — a framing that sounds neutral to one cluster but signals to another (e.g. a phrase that's only used in one media ecosystem) is detected by bridging score
-- *Hostile capture* — a coordinated group cannot push their preferred framing through, because they cannot fake disagreement with themselves
-- *Editorial-board capture* — no single institution selects the framings, so no single institution can be pressured to change them
-
-**What this does not solve:** Bridging assumes the relevant ideological dimensions are detectable from rater behavior. Issues that cut across the dominant axes (e.g. issues where the partisan split is unstable or recent) may not have a clean bridging signal yet. For these, the system stays silent until enough rating history accumulates.
+門檻是可調的。平台可以從保守起步(較高門檻),再依使用者反應資料逐步擴張。
 
 ---
 
-## Platform Integration
+## 資料來源與治理
 
-Three deployment paths with different trade-offs:
+社群核實可以在兩個層級上運作,理想的系統會兩者並用。
 
-| Path | Description | Pros | Cons |
+### 起點:精選的第三方民調
+
+開源實作可以立即上線,只需匯整既有的同儕審查民調資料:
+
+- **可信來源:** 皮尤、蓋洛普、AP-NORC、KFF,以及其他具備公開方法論與符合 AAPOR 標準報告的機構
+- **標準化格式:** 每筆資料包含:題目文字、樣本數、誤差範圍、方法論、田野調查日期,以及原始交叉表
+- **版本控制且可稽核:** 每次資料更新都有完整的來源紀錄。從調查到顯示數字的完整流程,皆開放檢視
+- **單一主題多份民調:** 使用者可在同一議題的不同民調間切換,看見不同的措辭與提供者——對「框架如何影響結果」的透明化
+
+### 理想:平台原生民調 + 橋接式治理
+
+最強版本直接在平台上運作,以橋接演算法治理「該問哪些問題」——類似 Community Notes 使用橋接機制,讓在意識形態分歧中仍能贏得共識的備註得以浮現:
+
+- **問題提案:** 由多元的貢獻者池(研究者、記者、公民)提案——而非由平台自行決定
+- **橋接式核可:** 一個問題唯有獲得「歷史上彼此意見不合」的貢獻者核可,才能進入活躍分類體系。這在結構上濾掉帶有引導性或黨派色彩的問題,而不依賴任何單一編輯委員會
+- **保守觸發:** 問題只在配對信心高(>0.8),且貼文符合觸及 + 互動門檻時啟動。系統設計上在不確定時保持沉默——寧可遺漏,也不要錯誤比對
+- **平台原生抽樣:** 平台執行自己的分層隨機抽樣,即時產生 N>100,000、誤差範圍 <±0.5% 的資料
+- **開源演算法:** 抽樣演算法、橋接模型與問題分類體系皆開源公開。獨立研究者可稽核每一層
+
+橋接式做法解決了「誰來決定?」的問題,而不依賴任何單一機構。中立性源自系統的結構,而非營運者的善意。
+
+### 橋接機制如何選擇問題框架
+
+問題框架(question framing)是整個系統中槓桿最大的單一決策。「所有槍枝購買都應要求進行背景查核嗎?」與「政府應要求許可才能購買槍械嗎?」表面上測量同一政策態度——但持續性地產生不同的數字。若社群核實選錯框架,所顯示的共識本身就是一種扭曲。
+
+橋接演算法——改編自 Community Notes 的設計([Wojcik 等人, 2022](https://arxiv.org/abs/2210.15723))——透過結構性地要求「跨意識形態核可」才能進入正式生產,來解決這個問題。實務上的運作方式如下:
+
+**1. 開放的問題提案。** 池中任何貢獻者(研究者、記者、公民、公民社會組織)都能為某主題提交候選框架。每次提交須包含:
+
+- 問題的精確文字
+- 採用相同或近似措辭的來源民調
+- 為何此措辭中立的簡短說明
+- 該題允許的答案選項清單
+
+**2. 多元的評分者池。** 貢獻者依其「歷史評分行為」進行剖析,而非依自己宣稱的所屬立場。橋接模型學習哪些評分者傾向核可哪些問題。兩個一致核可同樣問題的評分者,被歸為「意識形態相似」;兩個一致意見不合的,則被歸為「意識形態距離大」。這是學習得到的潛在變量,而非自我陳述。
+
+**3. 每個候選框架的橋接分數。** 一個候選問題要被核可,必須達到一定的「橋接分數」——衡量它在「平常意見不合的評分者群體間」獲得多少跨群核可。一個在某群獲得 100% 核可、在另一群獲得 0% 核可的問題,得分會很差,無論其絕對核可率多高。一個在所有群體間都獲得中等核可的問題,得分則會很高。這在數學上正是 Community Notes 用來讓「找到共同點」的備註浮現的同一套做法。
+
+**4. 對抗性測試。** 部署前,候選框架會與刻意設計的引導性變體一起測試。若橋接演算法無法區分候選與明顯帶有偏見的版本(例如,候選框架與「我們應該堵上讓危險人物得以購槍的漏洞嗎?」配對),則該候選框架被拒絕。這可防止微妙的引導效應(priming effect)滲入。
+
+**5. 同一主題多種框架。** 在橋接機制產生數個近似等效的候選框架時,**全部保留並輪換**。使用者在展開檢視中,可看見每一框架各自的百分比分布。這本身就是一種透明化——合格民調的中位數成為頭條數字,但底層的變異仍可見。
+
+**6. 定期再驗證。** 語言會漂移。一個在 2026 年中立的框架,到了 2030 年可能已帶有黨派色彩。已核可的框架每季由橋接池重新評分;若先前已核可的問題,其橋接分數降至門檻以下,則被棄用、移出輪換。
+
+**貢獻者池本身的選取準則。** 橋接演算法的好壞,取決於評分者的多元性。啟動池時,需明確招募原本會代表性不足的群體:
+
+- 活躍貢獻者每季接受問卷調查,以繪出池在多個維度上(黨派認同、意識形態分數、人口統計特徵、地理分布)的實際分布
+- 不平衡會觸發針對代表性不足群體的招募
+- 任何新問題要獲得核可前,需有最低門檻的跨意識形態評分者數量——小型或同質的池無法推動框架,直到多元性恢復
+- 貢獻者聲望透過橋接模型本身追蹤:評分一致與跨群共識對齊的貢獻者獲得更高權重;高度黨派但少有橋接的則權重較低
+
+**這能防止什麼:**
+
+- *引導性框架*(「擁槍漏洞」vs.「私人交易例外」)——皆被標記為帶有黨派色彩,皆不被核可
+- *虛假中立*——一個對某群聽起來中立、但對另一群發出特定信號的框架(例如某媒體生態圈才使用的措辭),會被橋接分數偵測出來
+- *惡意把持*——協調性群體無法強推自己偏好的框架,因為他們無法假裝彼此意見不合
+- *編輯委員會把持*——沒有單一機構選擇框架,因此沒有單一機構能被施壓改變
+
+**這無法解決什麼:** 橋接機制假設相關的意識形態維度可從評分者行為中偵測出來。在主導軸線之外的議題(例如黨派分歧不穩或新近浮現的議題),可能尚無乾淨的橋接訊號。對這些議題,系統會保持沉默,直到累積足夠的評分歷史。
+
+---
+
+## 平台整合
+
+三條部署路徑,各有不同的權衡:
+
+| 路徑 | 描述 | 優點 | 缺點 |
 |------|-------------|------|------|
-| Native platform integration | Platform adds Community Check to its post rendering pipeline | Fastest, best UX, most reliable | Requires platform cooperation |
-| Open-source sampling code | Platform runs algorithm natively, consumes poll data from consortium API | Platform controls UX; consortium controls data integrity | Still needs platform buy-in |
-| Browser extension | DOM injection, works without cooperation | Independent, works today | Fragile, limited data, low adoption ceiling |
+| 平台原生整合 | 平台將社群核實納入其貼文渲染管線 | 最快、UX 最佳、最可靠 | 需要平台合作 |
+| 開源抽樣程式碼 | 平台原生執行演算法,從聯盟 API 取用民調資料 | 平台掌控 UX;聯盟掌控資料品質 | 仍需平台買單 |
+| 瀏覽器擴充功能 | DOM 注入,無需合作即可運作 | 獨立、今天就能做 | 脆弱、資料受限、採用上限低 |
 
-### Browser Extension Bottlenecks
+### 瀏覽器擴充功能的瓶頸
 
-- **DOM fragility:** Platforms frequently update their HTML structure, breaking injection points. Requires continuous maintenance.
-- **Classification latency:** Post text must be sent to a classification API, adding 200–500ms delay before the Community Check link appears.
-- **Poll database:** Without platform-native sampling, the extension can only show Tier 1 (national polling) data — no real-time platform sample.
-- **Adoption ceiling:** Extensions reach power users, not the median user who most needs the intervention.
+- **DOM 脆弱性:** 平台頻繁更新其 HTML 結構,會破壞注入點。需要持續維護。
+- **分類延遲:** 貼文文字必須送到分類 API,在社群核實連結出現前,會有 200–500 毫秒的延遲。
+- **民調資料庫:** 沒有平台原生抽樣的話,擴充功能只能顯示第一層(全國民調)資料——沒有即時的平台樣本。
+- **採用上限:** 擴充功能觸及的是進階使用者,而非最需要這項介入的中位使用者。
 
-The extension path is valuable as a demonstration — proving the concept works and building demand for native integration.
-
----
-
-## Platform vs. National Signals
-
-Community Check shows two tabs — "This platform" and "Nationally" — because they measure different things:
-
-- **Platform sample (Tier 2):** What users on this platform actually think. Random, not engagement-weighted. Answers: *"Is the feed representative of the people here?"*
-- **National sample (Tier 1):** What Americans think, from peer-reviewed surveys. Answers: *"Is this platform representative of the country?"*
-
-The gap between them is itself informative. If 68% of platform users support background checks but the national number is 87%, that 19-point delta tells you the platform's user base skews differently from the country — even before the algorithm amplifies the loudest voices.
-
-Both signals combat different layers of distortion:
-
-- The platform sample corrects **algorithmic distortion** — what the feed shows you vs. what users actually think
-- The national sample corrects **sampling distortion** — what platform users think vs. what Americans think
-
-### Multiple Polls, Full Transparency
-
-For the national tab, Community Check shows multiple polls on the same topic — not just a single number. Users can tap into an expanded view showing:
-
-- **Each poll individually:** Provider name, exact question wording, sample size, margin of error, date of fieldwork
-- **How framing affects results:** "Support background checks for all gun purchases" (87%, Pew 2023) vs. "Favor making private gun sales subject to background checks" (81%, Gallup 2024) — both valid, both slightly different
-- **Recency indicator:** Polls are sorted most-recent-first, with visual emphasis on the freshest data
-- **Partisan breakdowns:** Where available, show Democrat/Republican/Independent splits — because knowing that 78% of Republicans and 90% of Democrats agree on something is more informative than knowing "83% of Americans" do
-
-The headline number in the collapsed view is the median across qualifying polls — the most conservative summary statistic. But the full data is always one tap away.
+擴充功能路徑作為示範是有價值的——可以證明概念可行,並建立對原生整合的需求。
 
 ---
 
-## Short-Form Video Adaptation
+## 平台訊號 vs. 全國訊號
 
-Short-form video (TikTok, Instagram Reels, YouTube Shorts) is the fastest-growing vector for political distortion. The format presents unique challenges — but Community Check can adapt. See the [design reference](../design/) for indicator, expanded, and pinned-comment mockups of the video adaptation.
+社群核實顯示兩個分頁——「本平台」與「全國」——因為它們測量的是不同的東西:
 
-### Topic Classification for Video
+- **平台樣本(第二層):** 本平台使用者實際上怎麼想。隨機選取,非互動加權。回答的是:*「動態消息能否代表這裡的人?」*
+- **全國樣本(第一層):** 美國人怎麼想,來自同儕審查的調查。回答的是:*「本平台能否代表整個國家?」*
 
-- **Audio transcription:** Platforms already run speech-to-text on every video for search indexing, captions, and ad targeting. The transcript feeds directly into the same LLM topic classifier used for text posts.
-- **On-screen text extraction (OCR):** Political videos frequently use text overlays ("BREAKING:", "They don't want you to know this"). OCR captures these for classification.
-- **Multimodal classification:** Combine transcript + OCR + video description + hashtags + audio fingerprint. Confidence threshold remains 0.8 — ambiguous videos get no Community Check.
-- **Creator history signal:** If a creator's past 10 videos consistently map to the same policy topic, the classifier gets a prior that improves accuracy on new uploads.
+兩者之間的落差,本身就是有訊息量的。若 68% 的平台使用者支持背景查核,但全國數字是 87%,那 19 個百分點的差距就告訴你:平台的使用者基數,在演算法放大最大聲的聲音之前,組成上就已偏離整個國家。
 
-### Placement Options
+兩種訊號各自對抗不同層級的扭曲:
 
-| Option | Description | Reach | Integration depth |
+- 平台樣本修正**演算法扭曲**——動態消息呈現給你的 vs. 使用者實際的想法
+- 全國樣本修正**抽樣扭曲**——平台使用者怎麼想 vs. 全美國民怎麼想
+
+### 多份民調,完全透明
+
+在全國分頁上,社群核實顯示的是同一主題的多份民調——而不只是一個數字。使用者可點擊進入展開檢視,看見:
+
+- **每一份民調個別呈現:** 提供者名稱、精確問題措辭、樣本數、誤差範圍、田野調查日期
+- **框架如何影響結果:**「支持所有槍枝購買的背景查核」(87%, Pew 2023) vs.「贊成將私人槍枝交易納入背景查核」(81%, Gallup 2024)——皆有效,皆略有不同
+- **時效指示器:** 民調以最新者優先排序,並在視覺上強調最新鮮的資料
+- **黨派分布:** 在資料可得時,呈現民主黨/共和黨/獨立選民的分布——因為知道「78% 共和黨人與 90% 民主黨人都同意某事」,比知道「83% 美國人」更有資訊量
+
+收合檢視中的頭條數字,是合格民調的中位數——最保守的摘要統計。但完整資料永遠只在一次點擊之外。
+
+---
+
+## 短影片版本
+
+短影片(TikTok、Instagram Reels、YouTube Shorts)是政治扭曲成長最快的載體。這個格式有其獨特的挑戰——但社群核實能夠調整。請見[設計參考](../design/),其中有指示符、展開、與釘選留言三種影片版本的示意圖。
+
+### 影片的主題分類
+
+- **音訊轉錄:** 平台已對每部影片執行語音轉文字,作為搜尋索引、字幕與廣告投放之用。轉錄文字直接餵入與文字貼文相同的 LLM 主題分類器。
+- **螢幕文字擷取(OCR):** 政治影片常使用文字疊圖(「快訊:」、「他們不想讓你知道這件事」)。OCR 擷取這些文字以供分類。
+- **多模態分類:** 結合轉錄 + OCR + 影片描述 + 主題標籤 + 音訊指紋。信心門檻仍為 0.8——模糊不清的影片不會獲得社群核實。
+- **創作者歷史訊號:** 若某創作者過去 10 部影片一致對應到同一政策主題,分類器會獲得一個先驗(prior),提升新上傳影片的準確度。
+
+### 放置選項
+
+| 選項 | 描述 | 觸及 | 整合深度 |
 |--------|-------------|-------|-------------------|
-| Pinned comment | Auto-generated first pinned comment | ~15–20% of viewers | Lowest |
-| End-of-video overlay | Subtle banner in last 2 seconds, tappable | All viewers, briefly | Medium |
-| Swipe-up card | Persistent indicator after first play, swipe to expand | All viewers, richest UX | Deepest |
+| 釘選留言 | 自動產生的第一則釘選留言 | 約 15–20% 觀眾 | 最低 |
+| 影片末段疊圖 | 最後 2 秒的低調橫幅,可點擊 | 所有觀眾,短暫 | 中等 |
+| 上滑卡片 | 首次播放後持續顯示指示符,上滑展開 | 所有觀眾,UX 最豐富 | 最深 |
 
-### Trigger Criteria Adjustments
+### 觸發條件調整
 
-| Criterion | Video threshold | Rationale |
+| 條件 | 影片門檻 | 理由 |
 |-----------|----------------|-----------|
-| Reach | >50K views | Video reach is naturally higher than text |
-| Engagement heat | Comment rate >1% OR share rate >3% OR stitch/duet rate >0.2% | Video-specific engagement signals |
-| Virality velocity | >10K views in first hour | Fast-spreading political videos are highest priority |
-| Topic confidence | >0.8 | Same as text, computed from multimodal inputs |
+| 觸及 | >50K 觀看 | 影片觸及自然較文字為高 |
+| 互動熱度 | 留言率 >1% 或分享率 >3% 或合拍/雙拼率 >0.2% | 影片特有的互動訊號 |
+| 病毒速度 | 第一小時內 >10K 觀看 | 快速擴散的政治影片優先級最高 |
+| 主題信心 | >0.8 | 與文字相同,從多模態輸入計算 |
 
-### The Latency Challenge
+### 延遲挑戰
 
-Text classification takes milliseconds. Video requires transcription + OCR + multimodal analysis, introducing 5–30 seconds of latency.
+文字分類只需毫秒。影片需要轉錄 + OCR + 多模態分析,引入 5–30 秒的延遲。
 
-- **Pre-classification at upload:** Classify during the upload processing pipeline. Community Check is ready before the first viewer sees it.
-- **Async attachment:** If a video goes viral before classification completes, attach Community Check retroactively. The first 1,000 viewers may not see it; the next 10 million will.
-- **Creator-level pre-mapping:** Creators who consistently post about gun policy can have new uploads pre-matched while full classification runs.
+- **上傳時預先分類:** 在上傳處理管線期間進行分類。社群核實在第一位觀眾看到之前就已就緒。
+- **非同步附加:** 若影片在分類完成前就病毒式傳播,事後追加社群核實。前 1,000 位觀眾可能看不到;接下來的 1,000 萬位會看到。
+- **創作者層級預先對應:** 持續發布槍枝政策貼文的創作者,新上傳的影片可在完整分類進行的同時,先預先比對。

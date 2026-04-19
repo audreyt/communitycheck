@@ -1,79 +1,79 @@
-# Community Check
+# 社群核實 Community Check
 
-**A design proposal for showing people what the hidden majority actually believes.**
+**一份設計提案,讓人們看見沉默的多數實際上相信什麼。**
 
-Community Check is a system that attaches representative public opinion data to viral social media posts as context. When a high-reach post (about gun policy, for example) goes viral, Community Check shows what a statistically representative sample of users (and Americans nationally) actually believe about that topic in question.
+社群核實(Community Check)是一套系統,在病毒式傳播的社群媒體貼文旁,附上具代表性的公眾意見資料作為脈絡。當某則高觸及貼文(例如關於槍枝政策)瘋傳時,社群核實會顯示在該議題上,平台使用者(以及全美國民)在統計上具代表性的樣本所實際抱持的看法。
 
-The goal is to up level the views of the quiet majority on issues that are prone to extreme viewpoint amplification.
+目標,是讓那些容易被極端觀點放大的議題上,沉默多數的真實想法得以浮現。
 
-## The Problem
+## 問題
 
-A [2025 study in PNAS Nexus](https://doi.org/10.1093/pnasnexus/pgaf310) found that 3.1% of social media users post toxic content — but Americans estimate 43% of users do. That's a 13x overestimate. Similar perception gaps exist across every major policy issue: Americans underestimate popular climate policy support by [nearly half](https://doi.org/10.1038/s41467-022-32412-y), overestimate partisan hostility by [roughly 2x](https://doi.org/10.1073/pnas.2001263117), and misjudge party composition by [over 3x](https://doi.org/10.1086/697253).
+[2025 年發表於 PNAS Nexus 的一項研究](https://doi.org/10.1093/pnasnexus/pgaf310)發現:只有 3.1% 的社群媒體使用者會發布有毒內容——但美國人估計的比例卻高達 43%。落差達 13 倍。類似的認知落差,存在於每一項重大政策議題上:美國人對熱門氣候政策的支持度低估了[將近一半](https://doi.org/10.1038/s41467-022-32412-y)、對黨派敵意的高估約[兩倍](https://doi.org/10.1073/pnas.2001263117)、對政黨組成的誤判超過[三倍](https://doi.org/10.1086/697253)。
 
-This represents misperceptions and factual errors about the composition of the larger audience, leading to real harmful policy decisions and political movements that are divorced from reality.
+這些都是對「更廣大受眾組成」的錯誤認知與事實謬誤,進而導致脫離現實的有害政策決定與政治運動。
 
-The result: the majority self-censors ([spiral of silence](https://doi.org/10.1111/j.1460-2466.1974.tb00367.x)), the minority thinks it's the majority, and everyone loses trust in everyone else.
+結果是:多數人選擇自我審查([沉默螺旋](https://doi.org/10.1111/j.1460-2466.1974.tb00367.x))、少數人誤以為自己是多數,而所有人都失去了對彼此的信任。
 
-## The Intervention
+## 介入方式
 
-Community Check draws from two data sources:
+社群核實取材自兩種資料來源:
 
-1. **Platform random sampling** — stratified random samples of actual platform users (N>100,000, margins of error <0.5%), updated continuously
-2. **Trusted national polls** — peer-reviewed surveys from Pew, Gallup, AP-NORC, KFF, and similar institutions
+1. **平台隨機抽樣**——對實際平台使用者進行分層隨機抽樣(N>100,000、誤差範圍 <0.5%),持續更新
+2. **可信賴的全國民調**——來自皮尤(Pew)、蓋洛普(Gallup)、AP-NORC、KFF 等同儕審查的調查機構
 
-Posts trigger a Community Check when they meet three criteria: high reach (>10K impressions), high engagement heat (disproportionate replies/quotes), and high-confidence topic match (>0.8 from an LLM classifier). Most posts are never touched.
+貼文要觸發社群核實,必須同時符合三項條件:高觸及(>10K 曝光)、高互動熱度(回覆/引用比例失衡),以及高信心的主題比對(LLM 分類器分數 >0.8)。絕大多數貼文都不會被觸及。
 
-The result is a small, unobtrusive link beneath qualifying posts that lets you see where the actual community stands — both on that platform and nationally.
+呈現方式,是一條低調、不擾人的小連結,出現在符合條件的貼文下方,讓你看見實際上社群的立場為何——同時呈現平台層面與全國層面的資料。
 
-The goal is to supplement tools like Community Notes, providing better context to help people form accurate perceptions when consuming content on social media.
+目標,是補充像「社群備註」(Community Notes)這類工具的不足,提供更好的脈絡,協助人們在消費社群媒體內容時形成準確的認知。
 
-## Why This Works
+## 為什麼這樣做有效
 
-Multiple studies show that correcting misperceptions about what others believe (metaperceptions) reduces hostility:
+多項研究顯示,修正人們對「他人想法」的錯誤認知(後設感知,metaperception)能夠降低敵意:
 
-- [Mernyk et al. (PNAS, 2022)](https://doi.org/10.1073/pnas.2116851119): A single correction reduced partisan hostility for ~26 days
-- [Lee et al. (PNAS Nexus, 2025)](https://doi.org/10.1093/pnasnexus/pgaf310): Correcting overestimates of toxic users improved positive emotions and reduced perceived moral decline
+- [Mernyk 等人(PNAS, 2022)](https://doi.org/10.1073/pnas.2116851119):一次性的修正可使黨派敵意降低約 26 天
+- [Lee 等人(PNAS Nexus, 2025)](https://doi.org/10.1093/pnasnexus/pgaf310):修正對「有毒使用者比例」的高估,能改善正面情緒、降低對道德衰退的感知
 
-This is different from fact-checking, which (with the exception of Community Notes) is often criticized as being heavy-handed and censorious. Instead, Community Check shows users what the larger community of people actively believe about particular viral issues. The goal is to help platform communities (and the public in general) more effectively calibrate their beliefs about the wider public online.
+這與事實查核(fact-checking)不同——除了「社群備註」之外,事實查核常被批評為過於強硬、帶有審查意味。社群核實則是讓使用者看見:更廣大的群體實際上對特定爭議議題抱持什麼樣的看法。目標是協助平台社群(以及一般大眾)更有效地校準自己對網路上廣大公眾的認知。
 
 
-## The pipeline
+## 流程管線
 
-![Pipeline diagram: 4 stages (Trigger → Classify → Lookup → Display) feeding from Tier 1 national polls and Tier 2 platform random sampling](design/pipeline-flow.png)
+![流程圖:四個階段(觸發 → 分類 → 查找 → 顯示),由第一層全國民調與第二層平台隨機抽樣餵入資料](design/pipeline-flow.png)
 
-See [design/](design/) for additional mockups and the full visual reference.
+更多視覺示意圖與完整設計參考請見 [design/](design/) 目錄。
 
-## Documentation
+## 文件
 
-- **[Technical Specification](docs/technical-spec.md)** — Data architecture, topic classification, trigger criteria, governance, platform integration, and video adaptation
-- **[FAQ](docs/faq.md)** — Gaming, bias, governance, and why this isn't social engineering
-- **[Research](docs/research.md)** — Full citations and evidence base
-- **[Open Questions](docs/open-questions.md)** — Unsolved problems where we need input
-- **[Design Reference](design/)** — UI mockups, pipeline diagram, and design principles
+- **[技術規格](docs/technical-spec.md)**——資料架構、主題分類、觸發條件、治理機制、平台整合,以及短影片版本
+- **[常見問題](docs/faq.md)**——關於操弄、偏誤、治理,以及為什麼這不是「社會工程」
+- **[研究文獻](docs/research.md)**——完整引用與證據基礎
+- **[未解問題](docs/open-questions.md)**——尚未解決的問題,我們需要您的意見
+- **[設計參考](design/)**——介面示意圖、流程圖,以及設計原則
 
-## The Essay
+## 文章
 
-The interactive essay explaining Community Check is live at [thenoisyroom.com](https://thenoisyroom.com). It walks through the problem, the research, and the proposed intervention with interactive visualizations.
+完整闡述社群核實構想的互動式文章,刊登於 [thenoisyroom.com](https://thenoisyroom.com)。文章透過互動式視覺化,逐步說明問題、研究與所提出的介入方式。
 
-## Status
+## 現況
 
-Community Check is a design proposal. The technical specification is detailed enough to build from, but several [open questions](docs/open-questions.md) remain — particularly around non-response bias, question framing, and governance bootstrapping. We believe these can be solved with the right deployment of bridging systems and community input.
+社群核實是一份設計提案。技術規格已詳盡到足以據以建置,但仍有若干[未解問題](docs/open-questions.md)——尤其是關於無回應偏誤、問題框架,以及治理機制的啟動。我們相信這些問題可以透過適當部署橋接系統與社群投入來解決。
 
-We're actively looking for support from researchers, engineers, platform designers, PMs at the major social media cos, and skeptics.
+我們正積極尋求研究者、工程師、平台設計師、各大社群媒體公司的產品經理,以及抱持懷疑態度者的支援。
 
-## Contributing
+## 貢獻方式
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. The most valuable contributions right now are:
+請見 [CONTRIBUTING.md](CONTRIBUTING.md) 中的指引。目前最有價值的貢獻方向是:
 
-- Critique of the technical specification
-- Research citations we've missed, for and against
-- Answers to the [open questions](docs/open-questions.md)
-- Translations and international polling sources
+- 對技術規格的批評
+- 我們遺漏的研究引用,無論支持或反對
+- 對[未解問題](docs/open-questions.md)的解答
+- 翻譯與國際民調來源
 
-## Acknowledgments
+## 致謝
 
-This work builds on ideas from Audrey Tang (bridging-based deliberation, digital democracy), the authors of [Community Notes](https://arxiv.org/abs/2210.15723) (crowd-sourced bridging algorithms for contested information), and Steven Pinker's *When Everyone Knows That Everyone Knows* (common knowledge and social norms).
+本作品奠基於唐鳳(Audrey Tang)在橋接式審議與數位民主上的構想、[「社群備註」(Community Notes)作者群](https://arxiv.org/abs/2210.15723)所開發的群眾外包橋接演算法,以及史迪芬・平克(Steven Pinker)在《當每個人都知道每個人都知道》(*When Everyone Knows That Everyone Knows*)中對「共同知識」與社會規範的分析。
 
-## License
+## 授權
 
 [CC BY 4.0](LICENSE)

@@ -1,56 +1,56 @@
-# Contributing
+# 貢獻指南
 
-Thanks for your interest in contributing to Community Check.
+感謝您有興趣參與社群核實(Community Check)的開發。
 
-## What this project is
+## 本專案是什麼
 
-Community Check is a design proposal for an intervention that attaches representative public opinion data to viral social media posts. The repository contains the technical specification, research base, FAQ, and the interactive essay at [thenoisyroom.com](https://thenoisyroom.com).
+社群核實是一份設計提案,旨在將具代表性的公眾意見資料,附加到病毒式傳播的社群媒體貼文上。本儲存庫包含技術規格、研究基礎、常見問題,以及刊登於 [thenoisyroom.com](https://thenoisyroom.com) 的互動式文章。
 
-## How to contribute
+## 如何貢獻
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b my-change`)
-3. Make your changes
-4. Test locally by opening `index.html` in a browser (for essay changes)
-5. Commit your changes (`git commit -m 'Description of change'`)
-6. Push to your branch (`git push origin my-change`)
-7. Open a Pull Request
+1. Fork 本儲存庫
+2. 建立功能分支(`git checkout -b my-change`)
+3. 進行修改
+4. 在瀏覽器中開啟 `index.html` 進行本機測試(若涉及文章修改)
+5. 提交變更(`git commit -m '變更說明'`)
+6. 推送到您的分支(`git push origin my-change`)
+7. 開啟 Pull Request
 
-## What we're looking for
+## 我們在尋找的貢獻
 
-**Specification:**
-- Critique and refinement of the [technical spec](docs/technical-spec.md)
-- Answers or approaches to the [open questions](docs/open-questions.md)
-- International polling sources and adaptation strategies
+**規格方面:**
+- 對[技術規格](docs/technical-spec.md)的批評與精進
+- 對[未解問題](docs/open-questions.md)的解答或思路
+- 國際民調來源與在地化策略
 
-**Research:**
-- Additional peer-reviewed citations relevant to the design
-- Counter-evidence or limitations we haven't addressed
-- Replication studies on metaperception correction
+**研究方面:**
+- 與設計相關的同儕審查論文引用
+- 我們尚未處理的反證或研究限制
+- 後設感知修正(metaperception correction)的重複驗證研究
 
-**Essay (thenoisyroom.com):**
-- Accessibility improvements
-- Mobile experience fixes
-- Translations
-- Bug fixes
+**文章方面(thenoisyroom.com):**
+- 無障礙性改進
+- 行動裝置體驗修正
+- 翻譯
+- 錯誤修正
 
-## Code style (for the essay)
+## 程式風格(文章部分)
 
-- The essay is a single-file HTML application (`index.html`). All CSS, HTML, and JavaScript live in one file. This is intentional — it keeps the project portable and easy to deploy.
-- Use CSS custom properties for theming
-- Support both light and dark modes
-- All external claims must link to peer-reviewed research or established polling organizations
+- 文章是一份單一檔案的 HTML 應用程式(`index.html`)。所有 CSS、HTML 與 JavaScript 都集中在同一檔案。這是刻意的設計——保持專案輕便、易於部署。
+- 使用 CSS 自訂屬性進行主題設定
+- 同時支援淺色與深色模式
+- 所有對外的主張,都必須連結到同儕審查的研究或公認的民調機構
 
-## Documentation style
+## 文件風格
 
-- Write clearly and concisely
-- Include citations with DOIs or stable URLs
-- When referencing polling data, include: provider, sample size, date, and exact question wording
+- 寫作清晰、簡潔
+- 引用須附上 DOI 或穩定 URL
+- 引用民調資料時,須包含:提供者、樣本數、日期,以及問題的精確措辭
 
-## Reporting issues
+## 回報問題
 
-Open an issue on GitHub with:
-- What you expected to happen
-- What actually happened
-- Browser and device info (for essay bugs)
-- Screenshots if relevant
+請在 GitHub 上開啟 issue,並包含:
+- 您預期會發生什麼
+- 實際發生了什麼
+- 瀏覽器與裝置資訊(若涉及文章錯誤)
+- 相關截圖

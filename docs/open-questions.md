@@ -1,48 +1,48 @@
-# Open Questions
+# 未解問題
 
-Community Check is a design proposal, not a finished system. These are the open problems we're actively thinking about — and where we'd most welcome input from researchers, engineers, and skeptics.
+社群核實是一份設計提案,而非完成的系統。以下是我們正在積極思考的開放性問題——也是我們最歡迎研究者、工程師與懷疑者投入意見的地方。
 
-## Non-Response Bias
+## 無回應偏誤
 
-If the platform randomly selects 500,000 users for an in-app survey, the expected response rate is 5–15% (industry benchmark for optional in-app prompts). The people who respond are systematically different from those who don't — they tend to be more engaged, more opinionated, more politically interested.
+若平台隨機選取 50 萬名使用者進行 app 內調查,預期回應率為 5–15%(這是業界對選擇性 app 內提示的基準)。回應的人與不回應的人,系統性地不同——他們傾向於更投入、更有定見、政治興趣更高。
 
-Oversampling underrepresented strata and demographic weighting mitigate this, but non-response bias is the single largest methodological risk in the platform sample. How far can weighting correct for it? This needs empirical testing on real platform data.
+對代表性不足層級的超額抽樣與人口統計加權可緩解這點,但無回應偏誤是平台樣本中最大的單一方法學風險。加權能修正到什麼程度?這需要在真實平台資料上進行實證測試。
 
-## Question Framing Effects
+## 問題框架效應
 
-"Do you support background checks for all gun purchases?" and "Should the government require background checks before you can buy a gun?" produce different numbers — even though both are neutral. The specific wording determines the percentage displayed.
+「您支持所有槍枝購買都進行背景查核嗎?」與「在您能購買槍枝前,政府應要求進行背景查核嗎?」會產生不同的數字——即使兩者都中立。具體措辭決定了所顯示的百分比。
 
-Our proposed mitigation is showing multiple polls on the same topic with their exact wordings, so users can see how framing affects results. But the "headline number" shown in the collapsed view is still a choice. Should it be the median across polls? The most recent? The most conservative estimate? This is unresolved.
+我們提議的緩解方式,是將同主題的多份民調連同其精確措辭一併呈現,讓使用者看見框架如何影響結果。但收合檢視中所顯示的「頭條數字」,仍是一個選擇。應該是各份民調的中位數嗎?最新的那一份?最保守的估計?這仍未解決。
 
-## Temporal Validity
+## 時效性
 
-Public opinion shifts. A poll from 2023 may not reflect 2026 sentiment. The platform sample (Tier 2) addresses this with continuous refresh, but the national polls (Tier 1) may lag by months or years.
+公眾意見會變動。2023 年的民調可能無法反映 2026 年的情緒。平台樣本(第二層)透過持續更新處理這點,但全國民調(第一層)可能落後數月或數年。
 
-The system should display dates prominently and weight more recent data, but the exact weighting function is TBD. For fast-moving issues (emerging legislation, crisis events), there may be periods where no current data exists — and the system should stay silent rather than show stale numbers.
+系統應顯眼地呈現日期,並對較新資料給予較高權重,但確切的加權函式仍待定。對於變動快速的議題(新興立法、危機事件),可能會有「沒有當前資料存在」的時期——而系統應保持沉默,而非顯示過時的數字。
 
-## Governance and Accountability
+## 治理與問責
 
-The bridging-based approach for question approval is promising, but it raises its own questions:
+橋接式問題核可的方法很有前景,但它本身也提出問題:
 
-- Who are the initial contributors?
-- How do you bootstrap a diverse contributor pool?
-- What happens when the bridging algorithm itself is contested?
-- What's the appeals process for a rejected question or a flagged match?
+- 最初的貢獻者是誰?
+- 如何啟動一個多元的貢獻者池?
+- 當橋接演算法本身受到爭議時,該怎麼辦?
+- 對於被拒絕的問題或被標記的配對,申訴流程是什麼?
 
-These governance structures need to be designed with the same rigor as the technical architecture.
+這些治理結構,需要與技術架構同等的嚴謹度去設計。
 
-## Does In-Feed Data Actually Change Behavior?
+## 動態消息中的資料,真的會改變行為嗎?
 
-The research on metaperception correction is strong ([Mernyk et al., 2022](https://doi.org/10.1073/pnas.2116851119); [Lee et al., 2025](https://doi.org/10.1093/pnasnexus/pgaf310)). But those studies were conducted in controlled settings — not in the middle of an algorithmically optimized feed designed to trigger emotional reactions.
+關於後設感知修正的研究很堅實([Mernyk 等人, 2022](https://doi.org/10.1073/pnas.2116851119);[Lee 等人, 2025](https://doi.org/10.1093/pnasnexus/pgaf310))。但那些研究是在受控環境中進行的——而非在一個演算法被優化以觸發情緒反應的動態消息中間。
 
-Does a polling widget beneath an enraging post actually get processed rationally? Or does it get scrolled past? This is an empirical question that can only be answered by building and testing the intervention in real environments.
+在一則令人憤怒的貼文下方放一個民調小工具,真的會被理性處理嗎?還是會直接被滑過?這是個只能在真實環境中建置與測試介入機制才能回答的實證問題。
 
-## International Applicability
+## 國際適用性
 
-The current design is US-centric — American polling institutions, American policy questions, American perception gap research. Social media is global.
+目前的設計以美國為中心——美國的民調機構、美國的政策問題、美國的認知落差研究。社群媒體是全球性的。
 
-Adapting Community Check for other countries requires equivalent trusted polling infrastructure in each context, which exists in some countries (UK, Germany, Australia) but not others. The architecture is portable; the data sources are not.
+要將社群核實適配到其他國家,需要在各國脈絡下有對應的可信民調基礎建設。在某些國家(英國、德國、澳洲)有,在其他國家則沒有。架構是可移植的;資料來源不是。
 
 ---
 
-These are real problems, not rhetorical ones. If you're a researcher, engineer, or designer with ideas about any of them — [open an issue](https://github.com/rosestt/communitycheck/issues) or submit a PR.
+這些都是真實的問題,而非修辭性的。若你是研究者、工程師或設計師,對其中任一問題有想法——請[開立 issue](https://github.com/rosestt/communitycheck/issues) 或提交 PR。

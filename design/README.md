@@ -1,57 +1,57 @@
-# Community Check — Design Reference
+# 社群核實 Community Check ── 設計參考
 
-Visual reference for the Community Check specification. These mockups show what the intervention looks like in practice.
+社群核實規格的視覺參考。這些示意圖呈現了介入機制在實務上看起來會是什麼樣子。
 
-## The core interaction
+## 核心互動
 
-A small, unobtrusive link beneath high-reach posts on contested policy topics:
+在涉及爭議性政策議題的高觸及貼文下方,有一條低調、不擾人的小連結:
 
-![Community Check collapsed state: a social post with a subtle green prompt below asking "How do people actually feel about this?"](mockup-collapsed.png)
+![社群核實收合狀態:一則社群貼文,下方有一段帶有微妙綠色提示的問句「人們對這件事實際上怎麼想?」](mockup-collapsed.png)
 
-Tapping the link reveals representative opinion data — both from platform users (random sample) and from peer-reviewed national polls:
+點擊該連結後,展開具代表性的意見資料——同時來自平台使用者(隨機抽樣)與同儕審查的全國民調:
 
-![Community Check expanded state: polling results with four answer choices shown as horizontal bars, toggle between "This platform" and "Nationally" tabs](mockup-expanded.png)
+![社群核實展開狀態:民調結果以四個答案選項的水平長條圖呈現,並可在「本平台」與「全國」兩個分頁間切換](mockup-expanded.png)
 
-## Short-form video adaptation
+## 短影音版本
 
-The same intervention adapted for TikTok, Reels, and Shorts. A small green indicator appears at the bottom of qualifying videos once they cross the reach/engagement thresholds:
+同樣的介入機制,也能因應 TikTok、Reels 與 Shorts 進行調整。當符合條件的短影音越過觸及與互動門檻後,影片底部會出現一個低調的綠色指示符:
 
-![Short-form video mockup with a persistent green Community Check indicator at the bottom of the video frame](video-mockup-indicator.png)
+![短影音示意圖:影片畫面底部持續顯示一個綠色的社群核實指示符](video-mockup-indicator.png)
 
-Swiping up reveals the full opinion data without leaving the video player — with larger type, tighter vertical layout, and bars optimized for glance-readability:
+向上滑動,即可在不離開影片播放器的情況下,看見完整的意見資料——字體較大、垂直版面更緊湊、長條圖也針對「掃一眼即看懂」做了優化:
 
-![Expanded Community Check over short-form video: question and three bars showing platform opinion distribution](video-mockup-expanded.png)
+![展開於短影音上方的社群核實:問題與三條長條圖,呈現平台意見的分布](video-mockup-expanded.png)
 
-For platforms where swipe interactions aren't available, Community Check can attach as an auto-pinned comment instead:
+對於不支援上滑互動的平台,社群核實也可以改為自動釘選的留言形式呈現:
 
-![Pinned-comment variant: the first comment on a short-form video shows the Community Check summary inline](video-mockup-pinned.png)
+![釘選留言版本:短影音的第一則留言,以行內方式顯示社群核實摘要](video-mockup-pinned.png)
 
-See the [technical spec](../docs/technical-spec.md#short-form-video-adaptation) for classification, trigger thresholds, and latency strategies specific to video.
+關於影片版本的分類、觸發門檻與延遲處理策略,請見[技術規格](../docs/technical-spec.md#短影片版本)。
 
-## The data pipeline
+## 資料管線
 
-How posts become Community Checks — from viral trigger through topic classification to the two-tier data lookup:
+從觸發貼文病毒式傳播,到主題分類、再到雙層資料查找——貼文如何成為一則社群核實:
 
-![Pipeline diagram: 4 stages (Trigger → Classify → Lookup → Display) feeding from Tier 1 (national polls) and Tier 2 (platform random sampling)](pipeline-flow.png)
+![流程圖:四個階段(觸發 → 分類 → 查找 → 顯示),由第一層(全國民調)與第二層(平台隨機抽樣)餵入資料](pipeline-flow.png)
 
-## Design principles
+## 設計原則
 
-- **Conservative triggering.** The system stays silent when uncertain. Gaps are better than false matches.
-- **Non-directional.** Community Check shows what people think — it never tells the user what to think.
-- **Everyone sees the same numbers.** No personalization. No filtering by social graph. No engagement-based adjustment.
-- **Unobtrusive.** Below the post, never on top of it. A quiet link, not a label or warning.
-- **Two signals, side by side.** Platform sample (Tier 2) and national polls (Tier 1) are shown together because they correct different distortions.
+- **保守觸發。** 系統在不確定時保持沉默。寧可遺漏,也不要錯誤比對。
+- **不帶方向性。** 社群核實呈現的是人們的想法——絕不告訴使用者該怎麼想。
+- **每個人看到一樣的數字。** 不個人化、不依社交網絡篩選、不依互動行為調整。
+- **低調不擾人。** 出現在貼文下方,而非疊加其上。是一條安靜的小連結,不是標籤,也不是警告。
+- **兩種訊號並陳。** 平台樣本(第二層)與全國民調(第一層)並列呈現,因為它們各自修正不同類型的扭曲。
 
-## Files
+## 檔案
 
-| File | Purpose |
-|------|---------|
-| `mockup-collapsed.png` | Post with Community Check prompt attached |
-| `mockup-expanded.png` | Full opinion data reveal |
-| `video-mockup-indicator.png` | Short-form video with CC indicator |
-| `video-mockup-expanded.png` | Short-form video with expanded CC |
-| `video-mockup-pinned.png` | Pinned-comment variant |
-| `pipeline-flow.svg` / `.png` | Data and control flow diagram |
-| `og-image.png` | Social preview card |
+| 檔案 | 用途 |
+|------|------|
+| `mockup-collapsed.png` | 附帶社群核實提示的貼文 |
+| `mockup-expanded.png` | 完整意見資料展開後的樣貌 |
+| `video-mockup-indicator.png` | 帶有 CC 指示符的短影音 |
+| `video-mockup-expanded.png` | 展開 CC 後的短影音 |
+| `video-mockup-pinned.png` | 釘選留言版本 |
+| `pipeline-flow.svg` / `.png` | 資料與控制流程圖 |
+| `og-image.png` | 社群預覽卡片 |
 
-All mockups are rendered from the interactive essay at [thenoisyroom.com](https://thenoisyroom.com).
+所有示意圖皆由 [thenoisyroom.com](https://thenoisyroom.com) 上的互動式文章渲染而成。
