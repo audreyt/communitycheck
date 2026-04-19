@@ -3152,7 +3152,7 @@ function lockMQ(n) {
   const _P = 'font-family:var(--serif);font-size:17px;line-height:2.6;color:var(--text-secondary)';
   const msg = overRatio > 1
     ? `<div style="${_P}">您的猜測：<strong style="${_B}">${guess}%</strong>。實際上，<strong style="${_G}">${data.actual}%</strong>${actualDesc}。這是 <strong style="${_B}">${overRatio}\u00D7</strong> 的高估。</div>`
-    : `<div style="${_P}">您的猜測：<strong style="${_B}">${guess}%</strong>。實際上，<strong style="${_G}">${data.actual}%</strong>${actualDesc}。您校準得異常準確。</div>`；
+    : `<div style="${_P}">您的猜測：<strong style="${_B}">${guess}%</strong>。實際上，<strong style="${_G}">${data.actual}%</strong>${actualDesc}。您校準得異常準確。</div>`;
 
   setTimeout(() => {
     reveal.innerHTML = `<div class="reveal-box" style="margin-top:12px"><div class="reveal-comparison" style="margin:0;border:none;padding:0">${msg}</div></div>`;
@@ -3741,11 +3741,11 @@ function submitGuess() {
   const G = 'font-family:var(--mono);font-size:24px;color:var(--accent);line-height:1';
   const P = 'font-family:var(--serif);font-size:17px;line-height:2.6;color:var(--text-secondary)';
   if (guess > 10) {
-    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。您高估了 <strong style="${G}">${Math.round(diff / 3.1)} 倍</strong>。一般美國人猜的是 43%——高估 13 倍。</div>`；
+    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。您高估了 <strong style="${G}">${Math.round(diff / 3.1)} 倍</strong>。一般美國人猜的是 43%——高估 13 倍。</div>`;
   } else if (guess > 5) {
-    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。比大多數人接近——一般人猜的是 43%。但仍高出 <strong style="${G}">${(diff).toFixed(0)}</strong> 個百分點。</div>`；
+    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。比大多數人接近——一般人猜的是 43%。但仍高出 <strong style="${G}">${(diff).toFixed(0)}</strong> 個百分點。</div>`;
   } else {
-    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。您校準得異常準確。一般人猜的是 43%——高估 <strong style="${G}">13 倍</strong>。</div>`；
+    comparison = `<div style="${P}">您的猜測：<strong style="${B}">${guess}%</strong>。您校準得異常準確。一般人猜的是 43%——高估 <strong style="${G}">13 倍</strong>。</div>`;
   }
   setTimeout(() => {
     document.getElementById('guess-reveal').innerHTML = `
